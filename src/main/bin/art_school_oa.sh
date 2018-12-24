@@ -50,6 +50,6 @@ if [ -f $PIDFILE ];then
 fi
                                                                                                 
 sleep 5
-java $JVM_OPTS $JVM_JMX -cp $classpath com.chengzi.art.school.oa.Launch > ${LOG}t1 2>${LOG}t2 &
+java $JVM_OPTS -cp $classpath com.chengzi.art.school.oa.Launch > ${LOG}t1 2>${LOG}t2 &
 PID=$!
 echo $PID > $PIDFILE
