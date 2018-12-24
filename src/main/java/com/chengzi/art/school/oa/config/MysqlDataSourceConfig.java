@@ -1,8 +1,9 @@
-package com.chengzi.art.school.oa.init;
+package com.chengzi.art.school.oa.config;
 
 
 import org.apache.commons.dbcp.BasicDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -52,9 +53,10 @@ public class MysqlDataSourceConfig {
     }
 
     @Bean(name = "OAJdbcTemplate")
-    public JdbcTemplate OAJdbcTemplate(@Autowired DataSource dataSource) {
+    public JdbcTemplate OAJdbcTemplate(@Autowired @Qualifier("OADataSource") DataSource dataSource) {
         JdbcTemplate jdbcTemplate = new JdbcTemplate();
         jdbcTemplate.setDataSource(dataSource);
+        jdbcTemplate.setQueryTimeout(30);
         return jdbcTemplate;
     }
 
