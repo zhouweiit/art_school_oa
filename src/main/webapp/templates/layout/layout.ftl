@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>博美艺术培训学校管理系统</title>
+    <title>博美教育管理系统</title>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <link rel="stylesheet" href="/widget/admin/bower_components/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="/widget/admin/bower_components/font-awesome/css/font-awesome.min.css">
@@ -22,7 +22,8 @@
     <#--头信息-->
     <header class="main-header">
         <a href="/widget/admin/index2.html" class="logo">
-            <span class="logo-lg">OA</span>
+            <span class="logo-mini"><b>博美</b></span>
+            <span class="logo-lg"><b>博美教育管理系统</b></span>
         </a>
         <nav class="navbar navbar-static-top">
             <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
@@ -155,7 +156,7 @@
             <ul class="sidebar-menu" data-widget="tree">
                 <li class="treeview">
                     <a href="#">
-                        <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+                        <i class="fa fa-dashboard"></i> <span>博美教育</span>
                             <span class="pull-right-container">
                                 <i class="fa fa-angle-left pull-right"></i>
                             </span>
