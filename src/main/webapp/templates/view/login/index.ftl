@@ -1,1 +1,1 @@
-login.ftl
+<#include "../../layout/layout.ftl">

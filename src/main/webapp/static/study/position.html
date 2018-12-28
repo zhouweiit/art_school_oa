@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!--absolute-->
+    <!--生成绝对定位的元素，相对于 static 定位以外的第一个父元素进行定位。-->
+
+    <!--元素的位置通过 "left", "top", "right" 以及 "bottom" 属性进行规定。-->
+
+    <!--fixed-->
+    <!--生成绝对定位的元素，相对于浏览器窗口进行定位。-->
+
+    <!--元素的位置通过 "left", "top", "right" 以及 "bottom" 属性进行规定。-->
+
+    <!--relative-->
+    <!--生成相对定位的元素，相对于其正常位置进行定位。-->
+
+    <!--因此，"left:20" 会向元素的 LEFT 位置添加 20 像素。-->
+
+    <!--static	默认值。没有定位，元素出现在正常的流中（忽略 top, bottom, left, right 或者 z-index 声明）。-->
+    <!--inherit	规定应该从父元素继承 position 属性的值。-->
+
+    <meta content="text/html" charset="UTF-8">
+    <title>position</title>
+    <style type="text/css">
+        body {
+            width: 100%;
+            margin: 0px;
+        }
+        #out_div{
+            width: 700px;
+            height: 1000px;
+            margin: 0 auto;
+            background-color: #815608;
+        }
+        #div1{
+            width: 500px;
+            height: 800px;
+            background-color: #00FF00;
+            margin: 0 auto;
+            position: relative;
+        }
+        #div2{
+            width: 100px;
+            height: 100px;
+            background-color: #0b58a2;
+        }
+        #div3{
+            width: 100px;
+            height: 100px;
+            background-color: #5c2699;
+        }
+        #div4{
+            position: relative;  /*相对定位，相对于它自生的当前位置来定位*/
+            left: 30px;
+            top: -30px;
+            width: 100px;
+            height: 100px;
+            background-color: silver;
+        }
+        #div5{
+            position: fixed; /*1.固定定位，不占元素位置，所以，div6移动上去了, 2.默认的top与left是当前元素的位置，3.它是想对于浏览器窗口定位的，滚动条移动也不会动*/
+            width: 100px;
+            height: 100px;
+            background-color: slategrey;
+
+        }
+        #div6{
+            width: 120px;
+            height: 120px;
+            background-color: #f7f3de;
+        }
+        #div7{
+            /*1.绝对定位，不占元素位置，所以，div8移动上去了，
+            2.默认的top与left是当前元素的位置，
+            3.它是相对于第一个相对于 static 定位以外的第一个父元素进行定位，它的第一个非static的父元素为div1
+            */
+
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: darkkhaki;
+            left: 200px;
+        }
+        #div8{
+            width: 120px;
+            height: 120px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <div id="out_div">
+        <div id="div1">
+            <div id="div2">div2</div>
+            <div id="div3">div3</div>
+            <div id="div4">div4</div>
+            <span id="span1">span1</span>
+            <div id="div5">div5</div>
+            <div id="div6">div6</div>
+            <div id="div7">div7</div>
+            <div id="div8">div8</div>
+        </div>
+    </div>
+</body>
+</html>

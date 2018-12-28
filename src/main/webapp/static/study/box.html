@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta content="text/html" charset="UTF-8">
+    <title>盒模型</title>
+    <style type="text/css">
+        body {
+            width: 100%;
+            margin: 0px;
+        }
+        #container{
+            width: 100%;
+            background-color: #01b2d2;
+        }
+        #header{
+            width: 75%;
+            margin: 0px auto;
+            height: 200px;
+            background-color: tomato;
+            text-align: center;
+        }
+        #article{
+            width: 75%;
+            height: 1000px;
+            margin: 20px auto;
+            background-color: silver;
+        }
+        #article_left {
+            float: left;
+            height: 100%;
+            width: 20%;
+            background-color: orchid;
+        }
+        #article_center {
+            float: left;
+            height: 100%;
+            width: 60%;
+            background-color: #0b58a2;
+        }
+        #article_right {
+            float: left;
+            height: 100%;
+            width: 20%;
+            background-color: #00FF00;
+        }
+        #footer{
+            width: 100%;
+            margin: 0px;
+            height: 150px;
+            background-color: teal;
+            text-align: center;
+        }
+        #guanggao{
+            width: 75%;
+            height: 50px;
+            margin: 20px auto;
+            background-color: #5c2699;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <header id="header">
+            头
+        </header>
+        <div id="guanggao">广告位</div>
+        <article id="article">
+            <div id="article_left">个人介绍</div>
+            <div id="article_center">内容</div>
+            <div id="article_right">导航栏</div>
+        </article>
+        <footer id="footer">
+            脚
+        </footer>
+    </div>
+</body>
+</html>

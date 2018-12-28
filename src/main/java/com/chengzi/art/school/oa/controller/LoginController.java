@@ -15,6 +15,7 @@ public class LoginController {
     @RequestMapping(value = "/index", method = {RequestMethod.GET})
     public ModelAndView login() {
         ModelAndView mav = new ModelAndView();
+        mav.addObject("hello", "hello world");
         mav.setViewName("/view/login/index");
         return mav;
     }
