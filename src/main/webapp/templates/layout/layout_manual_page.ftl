@@ -19,7 +19,7 @@
 </head>
 <body class="hold-transition skin-blue fixed sidebar-mini">
 <div class="wrapper">
-<#--头信息-->
+    <#--头信息-->
     <header class="main-header">
         <a href="/widget/admin/index2.html" class="logo">
             <span class="logo-mini"><b>A</b>LT</span>
@@ -150,7 +150,7 @@
         </nav>
     </header>
 
-<#--菜单信息-->
+    <#--菜单信息-->
     <aside class="main-sidebar">
         <section class="sidebar">
             <ul class="sidebar-menu" data-widget="tree">
@@ -326,7 +326,7 @@
         </section>
     </aside>
 
-<#--内容主体信息-->
+    <#--内容主体信息-->
     <div class="content-wrapper">
     <#--内容的头信息-->
         <section class="content-header">
@@ -338,7 +338,7 @@
         </section>
     </div>
 
-<#--底部信息-->
+    <#--底部信息-->
     <footer class="main-footer">
         <div class="pull-right hidden-xs">
             <b>Version</b> 1.0.0
