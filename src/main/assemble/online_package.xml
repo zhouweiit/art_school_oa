@@ -22,7 +22,7 @@
 			<outputDirectory>webapp</outputDirectory>
 		</fileSet>
 		<fileSet>
-			<directory>src/log</directory>
+			<directory>log</directory>
 			<outputDirectory>log</outputDirectory>
 		</fileSet>
 	</fileSets>
@@ -30,6 +30,7 @@
 		<dependencySet>
 			<outputDirectory>lib</outputDirectory>
 			<scope>runtime</scope>
+			<useProjectArtifact>true</useProjectArtifact>
 		</dependencySet>
 	</dependencySets>
 </assembly>

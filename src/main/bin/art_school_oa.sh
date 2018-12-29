@@ -2,19 +2,7 @@
 PRG="$0"
 BIN=`cd $(dirname "$PRG"); pwd`
 HOME=`dirname "$BIN"`
-PORT="$1"
-
-if [ ! $PORT  ];then
-	PORT=8080
-fi
-
-if [ "$PORT" -gt 0 ] 2>/dev/null ;then 
-   echo "port=$PORT"  
-else
-   echo "PORT must a num"
-   exit
-fi
-
+PORT=9000
 
 LIB=`find ${HOME}/lib/ -name "*.jar"`
 LOG=${HOME}/log/
@@ -22,22 +10,23 @@ CONF=${HOME}/conf/
 PIDFILE=${HOME}/pidfile
 WEBAPP=${HOME}/webapp
 
-if [ "$PORT" -ne 8080  ];then
-    PIDFILE=${HOME}/pidfile_$PORT
-fi
+PIDFILE=${HOME}/pidfile_$PORT
 
+echo $HOME
 echo $PIDFILE
 
 classpath="."
-classpath=$classpath:$CONF
+classpath=$classpath:$CONF:$WEBAPP
+
 for item in $LIB
 do
-    classpath=$classpath:$item:$WEBAPP
+    classpath=$classpath:$item
 done
 echo $classpath
 
 
-JVM_OPTS="-server -Xms4G -Xmx4G -XX:MaxPermSize=250M -XX:PermSize=100M -Xloggc:$LOG/gc_$PORT.log -XX:NewRatio=4 -XX:SurvivorRatio=2 -XX:PretenureSizeThreshold=5M -XX:CMSFullGCsBeforeCompaction=3 -XX:+UseParNewGC -XX:+PrintClassHistogram -XX:+PrintGCTimeStamps -XX:+PrintHeapAtGC -XX:+PrintGCDetails -XX:+PrintPromotionFailure  -XX:+PrintGCDateStamps -XX:+PrintGCApplicationStoppedTime -XX:+UseConcMarkSweepGC -XX:CMSInitiatingOccupancyFraction=70 -XX:+CMSDumpAtPromotionFailure -XX:+UseCMSCompactAtFullCollection -XX:+CMSParallelRemarkEnabled -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=$LOG/dump.log
+JVM_OPTS="-server -Xms200m -Xmx500m -XX:MaxPermSize=100M -XX:PermSize=50M -Xloggc:$LOG/gc_$PORT.log -XX:NewRatio=4 -XX:SurvivorRatio=2 -XX:PretenureSizeThreshold=5M -XX:CMSFullGCsBeforeCompaction=3 -XX:+UseParNewGC -XX:+PrintClassHistogram -XX:+PrintGCTimeStamps -XX:+PrintHeapAtGC -XX:+PrintGCDetails -XX:+PrintPromotionFailure  -XX:+PrintGCDateStamps -XX:+PrintGCApplicationStoppedTime -XX:+UseConcMarkSweepGC -XX:CMSInitiatingOccupancyFraction=70 -XX:+CMSDumpAtPromotionFailure -XX:+UseCMSCompactAtFullCollection -XX:+CMSParallelRemarkEnabled -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=$LOG/dump.log"
+echo $JVM_OPTS
 
 if [ -f $PIDFILE ];then
    PID=`cat $PIDFILE`
@@ -48,7 +37,7 @@ if [ -f $PIDFILE ];then
       kill $PID
    fi
 fi
-                                                                                                
+
 sleep 5
 java $JVM_OPTS -cp $classpath com.chengzi.art.school.oa.Launch > ${LOG}t1 2>${LOG}t2 &
 PID=$!
