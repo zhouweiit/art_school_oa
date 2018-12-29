@@ -2,6 +2,7 @@
 	<!--contextName></contextName -->
 
 	<property scope="context" name="nodeId" value="content-negotiation" />
+	<property name="LOG_HOME" value="./log/" />
 
 	<contextListener class="ch.qos.logback.classic.jul.LevelChangePropagator">
 		<resetJUL>true</resetJUL>
@@ -15,16 +16,17 @@
 	</appender>
 
 	<!-- File Output -->
-	<appender name="FILE"
-		class="ch.qos.logback.core.rolling.RollingFileAppender">
+	<appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
 		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-			<fileNamePattern>${logdir}-%d{yyyy-MM-dd-HH}.log</fileNamePattern>
+			<fileNamePattern>${LOG_HOME}%d{yyyy-MM-dd-HH}.log
+			</fileNamePattern>
 			<maxHistory>168</maxHistory>
 		</rollingPolicy>
 		<encoder>
 			<pattern>%d{HH:mm:ss.SSS} %-4relative [%thread] %-3level %logger{26} %marker %msg%n</pattern>
 		</encoder>
 	</appender>
+
 	<appender name="ASYNC" class="ch.qos.logback.classic.AsyncAppender">
 		<!-- discardingThreshold >0</discardingThreshold> -->
 		<queueSize>51200</queueSize>
@@ -39,7 +41,8 @@
 	<logger name="org.apache.tomcat.jdbc" level="INFO" />
 
 	<root level="INFO">
+		<appender-ref ref="STDOUT" />
 		<appender-ref ref="ASYNC" />
 	</root>
-	
+
 </configuration>

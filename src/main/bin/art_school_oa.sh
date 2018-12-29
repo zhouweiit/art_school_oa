@@ -5,8 +5,8 @@ HOME=`dirname "$BIN"`
 PORT=9000
 
 LIB=`find ${HOME}/lib/ -name "*.jar"`
-LOG=${HOME}/log/
-CONF=${HOME}/conf/
+LOG=${HOME}/log
+CONF=${HOME}/conf
 PIDFILE=${HOME}/pidfile
 WEBAPP=${HOME}/webapp
 
@@ -39,6 +39,6 @@ if [ -f $PIDFILE ];then
 fi
 
 sleep 5
-java $JVM_OPTS -cp $classpath com.chengzi.art.school.oa.Launch > ${LOG}t1 2>${LOG}t2 &
+java $JVM_OPTS -cp $classpath com.chengzi.art.school.oa.Launch > ${LOG}/t1 2>${LOG}/t2 &
 PID=$!
 echo $PID > $PIDFILE
