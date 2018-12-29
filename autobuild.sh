@@ -4,4 +4,4 @@
 mvn clean compile -DskipTests package install
 
 # 项目打包成tar.gz
-mvn assembly:single -Pdev -DskipTests
+mvn org.apache.maven.plugins:maven-assembly-plugin:2.5.4:assembly -Ponline -DskipTests
