@@ -31,14 +31,14 @@ echo $JVM_OPTS
 if [ -f $PIDFILE ];then
    PID=`cat $PIDFILE`
    tr=`jps -v | grep $PID | grep $PORT | grep $HOME`
-   echo "tr:"$tr
    if [ "$tr" != "" ] ; then
+      echo "tr:"$tr
       echo "kill $PID"
       kill $PID
    fi
 fi
 
 sleep 5
-java $JVM_OPTS -cp $classpath com.chengzi.art.school.oa.Launch > ${LOG}/t1 2>${LOG}/t2 &
+java $JVM_OPTS -cp $classpath -Dlogdir=$LOG com.chengzi.art.school.oa.Launch > ${LOG}/t1 2>${LOG}/t2 &
 PID=$!
 echo $PID > $PIDFILE

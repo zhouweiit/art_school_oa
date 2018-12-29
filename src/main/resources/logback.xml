@@ -2,7 +2,7 @@
 	<!--contextName></contextName -->
 
 	<property scope="context" name="nodeId" value="content-negotiation" />
-    <property name="LOG_HOME" value="./log/" />
+	<property name="LOG_HOME" value="${logdir}./log" />
 
 	<contextListener class="ch.qos.logback.classic.jul.LevelChangePropagator">
 		<resetJUL>true</resetJUL>
@@ -18,7 +18,7 @@
 	<!-- File Output -->
 	<appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
 		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-			<fileNamePattern>${LOG_HOME}%d{yyyy-MM-dd-HH}.log
+			<fileNamePattern>${LOG_HOME}/%d{yyyy-MM-dd-HH}.log
 			</fileNamePattern>
 			<maxHistory>168</maxHistory>
 		</rollingPolicy>
