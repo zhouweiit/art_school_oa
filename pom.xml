@@ -131,7 +131,8 @@
 						<exclude>**/*.xml</exclude>
 						<exclude>**/mappers/**</exclude>
                         <exclude>**/*.datx</exclude>
-                        <exclude>**/webapp/**</exclude>
+                        <exclude>**/static/**</exclude>
+                        <exclude>**/templates/**</exclude>
 					</excludes>
 				</configuration>
 			</plugin>
