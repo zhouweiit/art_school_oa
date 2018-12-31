@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/widget/admin/bower_components/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="/widget/admin/bower_components/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="/widget/admin/bower_components/Ionicons/css/ionicons.min.css">
+    <link rel="stylesheet" href="/widget/admin/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
     <link rel="stylesheet" href="/widget/admin/dist/css/AdminLTE.min.css">
     <link rel="stylesheet" href="/widget/admin/dist/css/skins/_all-skins.min.css">
     <!--[if lt IE 9]>
@@ -17,6 +18,12 @@
     <!-- Google Font -->
     <link rel="stylesheet" href="/css/font.css">
     <@layout_headercss/>
+    <style type="text/css">
+        <#-- 调整form 表单中的按钮间距 -->
+        div.box-footer > button.btn {
+            margin-right: 10px;
+        }
+    </style>
     <@layout_headerjs/>
 </head>
 <body class="hold-transition skin-blue fixed sidebar-mini">
@@ -220,10 +227,11 @@
 </div>
 <script src="/widget/admin/bower_components/jquery/dist/jquery.min.js"></script>
 <script src="/widget/admin/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="/widget/admin/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="/widget/admin/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
 <script src="/widget/admin/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
 <script src="/widget/admin/bower_components/fastclick/lib/fastclick.js"></script>
 <script src="/widget/admin/dist/js/adminlte.min.js"></script>
-<script src="/widget/admin/dist/js/demo.js"></script>
 <@layout_footerjs/>
 </body>
 </html>
