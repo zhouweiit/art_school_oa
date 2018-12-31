@@ -2,7 +2,7 @@
 	<!--contextName></contextName -->
 
 	<property scope="context" name="nodeId" value="content-negotiation" />
-	<property name="LOG_HOME" value="${logdir}./log" />
+	<property name="LOG_HOME" value="./log" />
 
 	<contextListener class="ch.qos.logback.classic.jul.LevelChangePropagator">
 		<resetJUL>true</resetJUL>
