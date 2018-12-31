@@ -191,7 +191,17 @@
     <div class="content-wrapper">
         <#--内容的头信息-->
         <section class="content-header">
-
+            <section class="content-header">
+                <h1>
+                    学校管理
+                    <small></small>
+                </h1>
+                <ol class="breadcrumb">
+                    <li><a href="#"><i class="fa fa-dashboard"></i> 首页</a></li>
+                    <li><a href="#">学校管理</a></li>
+                    <li class="active">新增学校</li>
+                </ol>
+            </section>
         </section>
         <#--内容的主题信息-->
         <section class="content">
