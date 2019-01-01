@@ -121,7 +121,7 @@
             },
             "dataSrc": function (result) {
                 console.log(result);
-                <#-- 比如要给每条数据加一个button或者checkbox之类的
+                <#-- 比如要给每条数据加一个button或者checkbox之类的，后端返回的数据，需要占位符
                 for ( var i=0, ien=json.data.length ; i<ien ; i++ ) {
                     json.data[i][0] = '<a href="/message/'+json.data[i][0]+'">View message</a>';
                 }
