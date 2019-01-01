@@ -31,9 +31,6 @@ public class DemoController {
     @RequestMapping(value = "/tableinfo", method = {RequestMethod.POST})
     @ResponseBody
     public String tableinfo(HttpServletRequest request) {
-        TeacherDto teacherDto = new TeacherDto();
-        teacherDto.setId(1);
-        teacherDto.setName("你好");
         Map<String, Object> tableResult = new HashMap<>();
         return JsonUtils.object2json(tableResult);
     }
