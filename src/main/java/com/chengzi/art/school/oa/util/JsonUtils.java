@@ -5,8 +5,6 @@ import com.fasterxml.jackson.databind.JavaType;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 
-import java.io.IOException;
-
 @Slf4j
 public class JsonUtils {
     static ObjectMapper objectMapper = new ObjectMapper();
@@ -24,7 +22,7 @@ public class JsonUtils {
             		_json = "{}";
             	}
             return (T) objectMapper.readValue(_json, cls);
-        } catch (IOException e) {
+        } catch (Exception e) {
             log.warn("json2object error", e);
         }
         return null;
@@ -40,7 +38,7 @@ public class JsonUtils {
             		_json = "{}";
             	}
             return (T) objectMapper.readValue(_json, javaType);
-        } catch (IOException e) {
+        } catch (Exception e) {
             log.warn("json2object error", e);
         }
         return null;
@@ -49,7 +47,7 @@ public class JsonUtils {
     public static String object2json(Object obj) {
         try {
             return objectMapper.writeValueAsString(obj);
-        } catch (IOException e) {
+        } catch (Exception e) {
             log.warn("object2json error", e);
         }
         return null;

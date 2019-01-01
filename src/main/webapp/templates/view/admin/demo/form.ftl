@@ -6,9 +6,9 @@
             <div class="box-header with-border">
                 <h3 class="box-title">Horizontal Form</h3>
             </div>
-            <form class="form-horizontal">
+            <form class="form-horizontal"> <#-- 设置label与input是垂直还是水平 -->
                 <div class="box-body">
-                    <div class="col-md-3">
+                    <div class="col-md-3"> <#-- 设置一对form的宽度 -->
                         <div class="form-group">
                             <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
 
@@ -31,7 +31,7 @@
                             <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
 
                             <div class="col-sm-10">
-                                <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+                                <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
                             </div>
                         </div>
                     </div>

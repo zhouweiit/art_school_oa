@@ -19,9 +19,17 @@
     <link rel="stylesheet" href="/css/font.css">
     <@layout_headercss/>
     <style type="text/css">
-        <#-- 调整form 表单中的按钮间距 -->
-        div.box-footer > button.btn {
+        <#-- 调整form 表单中的float右边的按钮间距 -->
+        div.box-footer > button.pull-right {
             margin-right: 10px;
+        }
+        <#-- 调整form 表单中的checkbox的间距-->
+        div.checkbox > label {
+            margin-left: 20px;
+        }
+        <#-- 调整form 表单中的radio的间距-->
+        div.radio > label {
+            margin-left: 20px;
         }
     </style>
     <@layout_headerjs/>
@@ -201,7 +209,7 @@
             <section class="content-header">
                 <h1>
                     学校管理
-                    <small></small>
+                    <small><小标题></小标题></small>
                 </h1>
                 <ol class="breadcrumb">
                     <li><a href="#"><i class="fa fa-dashboard"></i> 首页</a></li>
