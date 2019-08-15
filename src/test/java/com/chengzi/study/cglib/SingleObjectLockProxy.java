@@ -3,8 +3,6 @@ package com.chengzi.study.cglib;
 
 import org.springframework.cglib.proxy.Enhancer;
 
-import java.lang.reflect.Method;
-
 /**
  * Created by zhouwei on 2019/8/13
  **/
