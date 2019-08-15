@@ -1,4 +1,4 @@
-package com.zhouw.lambda;
+package com.chengzi.study.lambda;
 
 import com.google.common.collect.Maps;
 import lombok.Data;

@@ -1,4 +1,4 @@
-package com.zhouw.lambda;
+package com.chengzi.study.lambda;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

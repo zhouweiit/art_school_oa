@@ -1,4 +1,4 @@
-package com.zhouw.seria;
+package com.chengzi.study.seria;
 
 import java.io.Serializable;
 

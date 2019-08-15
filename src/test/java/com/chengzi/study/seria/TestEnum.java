@@ -1,4 +1,4 @@
-package com.zhouw.seria;
+package com.chengzi.study.seria;
 
 /**
  * Created by zhouwei on 2018/10/29
