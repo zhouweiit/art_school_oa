@@ -121,11 +121,10 @@
             },
             "dataSrc": function (result) {
                 console.log(result);
-                <#-- 比如要给每条数据加一个button或者checkbox之类的，后端返回的数据，需要占位符
-                for ( var i=0, ien=json.data.length ; i<ien ; i++ ) {
-                    json.data[i][0] = '<a href="/message/'+json.data[i][0]+'">View message</a>';
+                <#-- 比如要给每条数据加一个button或者checkbox之类的，后端返回的数据，需要占位符-->
+                for ( var i=0, ien=result.data.length ; i<ien ; i++ ) {
+                    result.data[i][0] = '<a href="/message/'+result.data[i][0]+'">View message</a>';
                 }
-                -->
                 return result.data;
             }
         };
@@ -133,53 +132,55 @@
         var table = $("#example2").DataTable(datable);
 
         <#-- 搜索时间触发后，重新加载信息-->
-        $("div.seacher_teacher").onclick(function () {
+        $("button.seacher_teacher").click(function () {
            table.ajax.reload();
         });
 
-        <#--&lt;#&ndash; 翻页事件 &ndash;&gt;-->
-        <#--table.on( 'page.dt', function () {-->
-            <#--var info = table.page.info();-->
-            <#--&lt;#&ndash; 通过ajax获取数据后，写入表中&ndash;&gt;-->
-            <#--var data = [-->
-                <#--[1,2,3,4,5],[1,2,3,4,5],[1,2,3,4,5],[1,2,3,4,5],-->
-                <#--[1,2,3,4,5],[1,2,3,4,5],[1,2,3,4,5],[1,2,3,4,5],-->
-                <#--[1,2,3,4,5],[1,2,3,4,5],[1,2,3,4,5],[1,2,3,4,5],-->
-                <#--[1,2,3,4,5],[1,2,3,4,5],[1,2,3,4,5],[1,2,3,4,5],-->
-                <#--[1,2,3,4,5],[1,2,3,4,5],[1,2,3,4,5],[1,2,3,4,5],-->
-                <#--[1,2,3,4,5],[1,2,3,4,5],[1,2,3,4,5],[1,2,3,4,5],-->
-                <#--[1,2,3,4,5],[1,2,3,4,5],[1,2,3,4,5],[1,2,3,4,5]-->
-            <#--];-->
-            <#--alert( 'Showing page: '+info.page+' of '+info.pages );-->
-            <#--table.clear();&lt;#&ndash; 清除表中的数据 &ndash;&gt;-->
-            <#--table.rows.add(data);&lt;#&ndash; 将数据写入表中 &ndash;&gt;-->
-            <#--table.draw();&lt;#&ndash; 重新渲染表中的数据 &ndash;&gt;-->
-        <#--});-->
+        <#-- 翻页事件 -->
+        table.on( 'page.dt', function () {
+            var info = table.page.info();
+            <#-- 通过ajax获取数据后，写入表中-->
+            var data = [
+                [1,2,3,4,5],[1,2,3,4,5],[1,2,3,4,5],[1,2,3,4,5],
+                [1,2,3,4,5],[1,2,3,4,5],[1,2,3,4,5],[1,2,3,4,5],
+                [1,2,3,4,5],[1,2,3,4,5],[1,2,3,4,5],[1,2,3,4,5],
+                [1,2,3,4,5],[1,2,3,4,5],[1,2,3,4,5],[1,2,3,4,5],
+                [1,2,3,4,5],[1,2,3,4,5],[1,2,3,4,5],[1,2,3,4,5],
+                [1,2,3,4,5],[1,2,3,4,5],[1,2,3,4,5],[1,2,3,4,5],
+                [1,2,3,4,5],[1,2,3,4,5],[1,2,3,4,5],[1,2,3,4,5]
+            ];
+            alert( 'Showing page: '+info.page+' of '+info.pages );
+            table.clear();<#-- 清除表中的数据 -->
+            table.rows.add(data);<#-- 将数据写入表中 -->
+            table.draw();<#-- 重新渲染表中的数据 -->
+        });
 
-        <#--&lt;#&ndash; 排序事件 order[][]，第一维表示哪一列，取值:数字，表示第几列，从0开始 ；第二维表示升序还是降序，取值:asc、desc&ndash;&gt;-->
-        <#--table.on( 'order.dt', function () {-->
-            <#--var order = table.order();-->
-            <#--alert( 'Ordering on column '+order[0][0]+' ('+order[0][1]+')' );-->
-        <#--});-->
+        <#-- 排序事件 order[][]，第一维表示哪一列，取值:数字，表示第几列，从0开始 ；第二维表示升序还是降序，取值:asc、desc-->
+        table.on( 'order.dt', function () {
+            var order = table.order();
+            if (order.length > 0) {
+                alert( 'Ordering on column '+order[0][0]+' ('+order[0][1]+')' );
+            }
+        });
 
-        <#--&lt;#&ndash; 每页显示的数据长度发生变化 &ndash;&gt;-->
-        <#--table.on( 'length.dt', function (e, settings, len ) {-->
-            <#--&lt;#&ndash; 表里面的排序信息 &ndash;&gt;-->
-            <#--alert(table.order());-->
-            <#--&lt;#&ndash; page - 当前页的索引（0代表第一页）-->
-            <#--pages - 总页数-->
-            <#--start - 起始索引-->
-            <#--end - 结束索引-->
-            <#--length - 每页长度。一般情况下 start+length=end，但是也不是所有情况都是这样，例如你总共数据条数是2，而 length是10-->
-            <#--recordsTotal - 总条数-->
-            <#--recordsDisplay - 显示的数据条数，如果你加上了过滤条件这个则是过滤后的记录数-->
-            <#--&ndash;&gt;-->
-            <#--alert(table.page.info());-->
-            <#--console.log(table.page.info());-->
-            <#--console.log(table.page());-->
-            <#--console.log(table.page.len());-->
-            <#--alert( 'New page length: '+len );-->
-        <#--});-->
+        <#-- 每页显示的数据长度发生变化 -->
+        table.on( 'length.dt', function (e, settings, len ) {
+            <#-- 表里面的排序信息 -->
+            alert(table.order());
+            <#-- page - 当前页的索引（0代表第一页）
+            pages - 总页数
+            start - 起始索引
+            end - 结束索引
+            length - 每页长度。一般情况下 start+length=end，但是也不是所有情况都是这样，例如你总共数据条数是2，而 length是10
+            recordsTotal - 总条数
+            recordsDisplay - 显示的数据条数，如果你加上了过滤条件这个则是过滤后的记录数
+            -->
+            alert(table.page.info());
+            console.log(table.page.info());
+            console.log(table.page());
+            console.log(table.page.len());
+            alert( 'New page length: '+len );
+        });
 
     })
 </script>
