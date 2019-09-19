@@ -7,7 +7,8 @@ public class SpringProxyFactory {
 
     public static void main(String[] args) throws InterruptedException {
         SingleObjectLockProxy<People> singleObjectLockProxy = new SingleObjectLockProxy<>(People.class);
-        singleObjectLockProxy.proxy().eat();
+        People p = singleObjectLockProxy.proxy();
+        p.eat();
     }
 
 }
