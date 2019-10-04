@@ -8,7 +8,7 @@ import org.springframework.web.context.request.WebRequestInterceptor;
 /**
  * Created by zhouwei on 2018/12/29
  **/
-public class MenuWebRequestInterceptor implements WebRequestInterceptor{
+public class MenuInterceptor implements WebRequestInterceptor{
 
     @Override
     public void preHandle(WebRequest request) throws Exception {

@@ -54,17 +54,6 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>redis.clients</groupId>
-            <artifactId>jedis</artifactId>
-            <version>2.9.0</version>
-            <optional>true</optional>
-        </dependency>
-		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<scope>runtime</scope>
-		</dependency>
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
@@ -75,7 +64,7 @@
             <artifactId>guava</artifactId>
             <version>19.0</version>
         </dependency>
-        <!-- connection pool -->
+        <!-- connection & pool -->
         <dependency>
             <groupId>commons-dbcp</groupId>
             <artifactId>commons-dbcp</artifactId>
@@ -86,6 +75,22 @@
             <artifactId>commons-pool2</artifactId>
             <version>2.4.2</version>
         </dependency>
+		<dependency>
+			<groupId>redis.clients</groupId>
+			<artifactId>jedis</artifactId>
+			<version>2.9.0</version>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis</artifactId>
+			<version>3.5.2</version>
+		</dependency>
         <!-- ras -->
         <dependency>
             <groupId>commons-codec</groupId>
@@ -97,7 +102,6 @@
             <artifactId>commons-jexl</artifactId>
             <version>2.1.1</version>
         </dependency>
-
         <!-- study-->
 		<dependency>
 			<groupId>org.mapdb</groupId>

@@ -1,3 +1,2 @@
-<#include "../../../layout/admin/layout_macro.ftl">
-
-<#include "../../../layout/admin/layout.ftl">
+<#include "${layout_admin_path}/layout_macro.ftl">
+<#include "${layout_admin_path}/layout.ftl">

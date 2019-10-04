@@ -1,4 +1,4 @@
-<#include "../../../layout/admin/layout_macro.ftl">
+<#include "${layout_admin_path}/layout_macro.ftl">
 <#macro layout_content>
 <div class="row">
     <div class="col-md-12">
@@ -130,4 +130,4 @@
     </div>
 </div>
 </#macro>
-<#include "../../../layout/admin/layout.ftl">
+<#include "${layout_admin_path}/layout.ftl">

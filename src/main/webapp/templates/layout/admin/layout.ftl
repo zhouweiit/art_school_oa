@@ -1,3 +1,4 @@
+<#include "global_param.ftl"/>
 <!DOCTYPE html>
 <html>
 <head>
