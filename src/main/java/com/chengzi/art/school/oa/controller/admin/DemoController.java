@@ -48,7 +48,7 @@ public class DemoController {
         tableResult.put("recordsTotal", 100);
         tableResult.put("recordsFiltered", 100);
         tableResult.put("data", data);
-        tableResult.put("error", "未知错误");
+        //tableResult.put("error", "未知错误");
         return JsonUtils.object2json(tableResult);
     }
 
