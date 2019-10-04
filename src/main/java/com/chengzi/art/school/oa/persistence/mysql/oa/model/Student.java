@@ -6,7 +6,7 @@ import lombok.Data;
  * Created by zhouwei on 2018/12/24
  **/
 @Data
-public class Teacher {
+public class Student {
 
     private Integer id;
 

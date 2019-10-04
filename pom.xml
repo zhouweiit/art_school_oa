@@ -91,6 +91,11 @@
 			<artifactId>mybatis</artifactId>
 			<version>3.5.2</version>
 		</dependency>
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis-spring</artifactId>
+			<version>2.0.2</version>
+		</dependency>
         <!-- ras -->
         <dependency>
             <groupId>commons-codec</groupId>
