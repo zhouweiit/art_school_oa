@@ -16,7 +16,7 @@ import javax.sql.DataSource;
  * mysql datasource config
  * Created by zhouwei on 2018/12/24
  **/
-@Configuration
+//@Configuration
 public class MysqlDataSourceConfig {
 
     @Value("${spring.datasource.oa.driver-class-name}")
@@ -31,7 +31,7 @@ public class MysqlDataSourceConfig {
     @Value("${spring.datasource.oa.password}")
     private String password;
 
-    //@Bean(name = "OADataSource")
+    @Bean(name = "OADataSource")
     public DataSource OADataSource() {
         BasicDataSource dataSource = new BasicDataSource();
         dataSource.setDriverClassName(driverClassName);
@@ -52,7 +52,7 @@ public class MysqlDataSourceConfig {
         return dataSource;
     }
 
-    //@Bean(name = "OAJdbcTemplate")
+    @Bean(name = "OAJdbcTemplate")
     public JdbcTemplate OAJdbcTemplate(@Autowired @Qualifier("OADataSource") DataSource dataSource) {
         JdbcTemplate jdbcTemplate = new JdbcTemplate();
         jdbcTemplate.setDataSource(dataSource);

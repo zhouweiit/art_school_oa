@@ -17,7 +17,7 @@ import java.time.Duration;
 /**
  * Created by zhouwei on 2018/12/24
  **/
-@Configuration
+//@Configuration
 public class RedisConfig {
 
     @Value("${spring.redis.default.host}")
@@ -26,7 +26,7 @@ public class RedisConfig {
     @Value("${spring.redis.default.port}")
     private Integer defaultPort;
 
-    //@Bean(name = "defaultJedisConnectionFactory")
+    @Bean(name = "defaultJedisConnectionFactory")
     public JedisConnectionFactory defaultJedisConnectionFactory() {
         // 设置基本信息
         RedisStandaloneConfiguration redisStandaloneConfiguration = new RedisStandaloneConfiguration();
@@ -53,7 +53,7 @@ public class RedisConfig {
         return factory;
     }
 
-    //@Bean(name = "defaultRedisTemplate")
+    @Bean(name = "defaultRedisTemplate")
     public StringRedisTemplate defaultRedisTemplate(@Autowired @Qualifier("defaultJedisConnectionFactory") RedisConnectionFactory factory) {
         StringRedisTemplate redisTemplate = new StringRedisTemplate();
         redisTemplate.setConnectionFactory(factory);
