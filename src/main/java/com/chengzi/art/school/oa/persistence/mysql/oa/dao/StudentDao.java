@@ -13,7 +13,7 @@ public class StudentDao {
     @Qualifier("OASqlSession")
     private SqlSessionTemplate sqlSessionTemplate;
 
-    public Student getById(int id) {
+    public Student loadById(int id) {
         return sqlSessionTemplate.selectOne("com.chengzi.art.school.oa.persistence.mysql.oa.model.Student.getById", id);
     }
 

@@ -16,12 +16,14 @@ public class TableParamDto {
 
     private Integer length;
 
+    private List<Order> order;
+
     private Map<String, Object> search;
 
     @Data
     public static class Column {
 
-        private Integer data;
+        private String data;
 
         private String name;
 
@@ -39,6 +41,10 @@ public class TableParamDto {
         private String value;
 
         private Boolean regex;
+
+    }
+
+    @Data static class Order {
 
     }
 

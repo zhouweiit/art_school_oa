@@ -81,21 +81,11 @@
 <#macro layout_footerjs>
 <script>
     $(function () {
-        <#-- 创建一个表 -->
+        <#-- 创建一个表 所有的设置：https://datatables.net/reference/option/ -->
         var datable = {
             "serverSide"  : true,
-            "language": {
-                "paginate": {
-                    "previous": "上一页",
-                    "next": "下一页",
-                    "first": "首页",
-                    "last": "尾页"
-                },
-                "info": "当前为第_PAGE_页(共_PAGES_页，共_MAX_条数据)",
-                "lengthMenu": "显示 _MENU_ 条记录"
-            },
             "paging"      : true,
-            "pagingType"  : "full_numbers",
+            "pagingType"  : "numbers",
             "autoWidth"   : false,
             "lengthChange": true,
             "lengthMenu": [ 10, 20, 50, 100 ],
@@ -104,28 +94,38 @@
             "info"        : true,
             "pageLength"  : 10,                         <#-- 默认每页面显示的条数 -->
             "order"       : [],                         <#--默认不排序，以数据来排序-->
-            "columnDefs"  : [
-                { "orderable": false, "targets": 0 }    <#-- 禁止第一列排序 -->
-            ]
-        };
-
-        datable.ajax = {
-            "url": "/admin/demo/tableinfo",
-            "type": "POST",
-            "data": function (param) {
-                var newParam = {
-                    "tableParam": JSON.stringify(param)
-                };
-                console.log(newParam);
-                return newParam;
-            },
-            "dataSrc": function (result) {
-                console.log(result);
-                <#-- 比如要给每条数据加一个button或者checkbox之类的，后端返回的数据，需要占位符-->
-                for ( var i=0, ien=result.data.length ; i<ien ; i++ ) {
-                    result.data[i][0] = '<a href="/message/'+result.data[i][0]+'">View message</a>';
+            "columns"     : [
+                {"data" : 'name1' },
+                {"data" : 'name2' },
+                {"data" : 'name3' },
+                {"data" : 'name4' },
+                {"data" : 'name5' }
+            ],
+            "columnDefs"  : [                           <#-- 禁止第一列排序 -->
+                {
+                    "orderable": false,
+                    "targets": 0
                 }
-                return result.data;
+            ],
+            "scrollX": 100,
+            "ajax" : {
+                "url": "/admin/demo/tableinfo",
+                "type": "POST",
+                "data": function (param) {
+                    var newParam = {
+                        "tableParam": JSON.stringify(param),
+                        "name": "小华",
+                        "age": 20,
+                    };
+                    return newParam;
+                },
+                "dataSrc": function (result) {
+                <#-- 比如要给每条数据加一个button或者checkbox之类的，后端返回的数据，需要占位符-->
+                    for ( var i=0, ien=result.data.length ; i<ien ; i++ ) {
+                        result.data[i][0] = '<a href="/message/'+result.data[i][0]+'">View message</a>';
+                    }
+                    return result.data;
+                }
             }
         };
 
@@ -133,53 +133,7 @@
 
         <#-- 搜索时间触发后，重新加载信息-->
         $("button.seacher_teacher").click(function () {
-           table.ajax.reload();
-        });
-
-        <#-- 翻页事件 -->
-        table.on( 'page.dt', function () {
-            var info = table.page.info();
-            <#-- 通过ajax获取数据后，写入表中-->
-            var data = [
-                [1,2,3,4,5],[1,2,3,4,5],[1,2,3,4,5],[1,2,3,4,5],
-                [1,2,3,4,5],[1,2,3,4,5],[1,2,3,4,5],[1,2,3,4,5],
-                [1,2,3,4,5],[1,2,3,4,5],[1,2,3,4,5],[1,2,3,4,5],
-                [1,2,3,4,5],[1,2,3,4,5],[1,2,3,4,5],[1,2,3,4,5],
-                [1,2,3,4,5],[1,2,3,4,5],[1,2,3,4,5],[1,2,3,4,5],
-                [1,2,3,4,5],[1,2,3,4,5],[1,2,3,4,5],[1,2,3,4,5],
-                [1,2,3,4,5],[1,2,3,4,5],[1,2,3,4,5],[1,2,3,4,5]
-            ];
-            alert( 'Showing page: '+info.page+' of '+info.pages );
-            table.clear();<#-- 清除表中的数据 -->
-            table.rows.add(data);<#-- 将数据写入表中 -->
-            table.draw();<#-- 重新渲染表中的数据 -->
-        });
-
-        <#-- 排序事件 order[][]，第一维表示哪一列，取值:数字，表示第几列，从0开始 ；第二维表示升序还是降序，取值:asc、desc-->
-        table.on( 'order.dt', function () {
-            var order = table.order();
-            if (order.length > 0) {
-                alert( 'Ordering on column '+order[0][0]+' ('+order[0][1]+')' );
-            }
-        });
-
-        <#-- 每页显示的数据长度发生变化 -->
-        table.on( 'length.dt', function (e, settings, len ) {
-            <#-- 表里面的排序信息 -->
-            alert(table.order());
-            <#-- page - 当前页的索引（0代表第一页）
-            pages - 总页数
-            start - 起始索引
-            end - 结束索引
-            length - 每页长度。一般情况下 start+length=end，但是也不是所有情况都是这样，例如你总共数据条数是2，而 length是10
-            recordsTotal - 总条数
-            recordsDisplay - 显示的数据条数，如果你加上了过滤条件这个则是过滤后的记录数
-            -->
-            alert(table.page.info());
-            console.log(table.page.info());
-            console.log(table.page());
-            console.log(table.page.len());
-            alert( 'New page length: '+len );
+            table.ajax.reload();
         });
 
     })

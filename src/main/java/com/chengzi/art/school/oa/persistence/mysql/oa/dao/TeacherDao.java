@@ -16,7 +16,7 @@ public class TeacherDao {
     @Qualifier("OASqlSession")
     private SqlSessionTemplate sqlSessionTemplate;
 
-    public Teacher getById(int id) {
+    public Teacher loadById(int id) {
         return sqlSessionTemplate.selectOne("com.chengzi.art.school.oa.persistence.mysql.oa.model.Teacher.getById", id);
     }
 

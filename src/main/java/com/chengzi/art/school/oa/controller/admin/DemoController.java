@@ -33,16 +33,22 @@ public class DemoController {
     @ResponseBody
     public String tableinfo(String tableParam) {
         TableParamDto tableParamDto = JsonUtils.json2object(tableParam, TableParamDto.class);
-        List<String[]> data = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
-            String[] d = new String[]{i+"", i+"", i+"", i+"", i+""};
-            data.add(d);
+        List<Map<String, String>> data = new ArrayList<>();
+        for (int i = tableParamDto.getStart(); i < tableParamDto.getStart() + tableParamDto.getLength(); i++) {
+            Map<String, String> map = new HashMap<>();
+            map.put("name1", i+"");
+            map.put("name2", i+"");
+            map.put("name3", i+"");
+            map.put("name4", i+"");
+            map.put("name5", i+"");
+            data.add(map);
         }
         Map<String, Object> tableResult = new HashMap<>();
         tableResult.put("draw", tableParamDto.getDraw());
         tableResult.put("recordsTotal", 100);
         tableResult.put("recordsFiltered", 100);
         tableResult.put("data", data);
+        tableResult.put("error", "未知错误");
         return JsonUtils.object2json(tableResult);
     }
 
