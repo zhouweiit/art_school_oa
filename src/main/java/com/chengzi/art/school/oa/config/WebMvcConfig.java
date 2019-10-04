@@ -1,7 +1,7 @@
 package com.chengzi.art.school.oa.config;
 
 import com.chengzi.art.school.oa.config.interceptors.MenuWebRequestInterceptor;
-import com.chengzi.art.school.oa.config.interceptors.SessionHandlerInterceptor;
+import com.chengzi.art.school.oa.config.interceptors.PermissionHandlerInterceptor;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
@@ -18,7 +18,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(new SessionHandlerInterceptor());
+        registry.addInterceptor(new PermissionHandlerInterceptor());
         registry.addWebRequestInterceptor(new MenuWebRequestInterceptor());
     }
 

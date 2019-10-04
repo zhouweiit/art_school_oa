@@ -12,17 +12,14 @@ public class MenuWebRequestInterceptor implements WebRequestInterceptor{
 
     @Override
     public void preHandle(WebRequest request) throws Exception {
-
     }
 
     @Override
     public void postHandle(WebRequest request, ModelMap model) throws Exception {
-
     }
 
     @Override
     public void afterCompletion(WebRequest request, Exception ex) throws Exception {
-
     }
 
 }
