@@ -1,8 +1,12 @@
 package com.chengzi.art.school.oa.controller.admin;
 
 import com.chengzi.art.school.oa.dto.TableParamDto;
+import com.chengzi.art.school.oa.persistence.mysql.oa.dao.StudentDao;
+import com.chengzi.art.school.oa.persistence.mysql.oa.dao.TeacherDao;
+import com.chengzi.art.school.oa.persistence.mysql.oa.model.Student;
 import com.chengzi.art.school.oa.util.JsonUtils;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -21,6 +25,12 @@ import java.util.Map;
 @RequestMapping("/admin/demo")
 @Slf4j
 public class DemoController {
+
+    @Autowired
+    private TeacherDao teacherDao;
+
+    @Autowired
+    private StudentDao studentDao;
 
     @RequestMapping(value = "/table", method = {RequestMethod.GET})
     public ModelAndView login() {
