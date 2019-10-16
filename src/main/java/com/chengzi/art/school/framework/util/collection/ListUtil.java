@@ -1,4 +1,4 @@
-package com.chengzi.art.school.oa.util;
+package com.chengzi.art.school.framework.util.collection;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -6,7 +6,7 @@ import java.util.List;
 
 import com.google.common.collect.Lists;
 
-public class ListUtils {
+public class ListUtil {
 	
 	public static <T> List<List<T>> subList(List<T> lists,int partNum){
 		List<List<T>> newLists = Lists.newArrayList();

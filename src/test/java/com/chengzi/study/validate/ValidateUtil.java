@@ -25,7 +25,12 @@ public class ValidateUtil {
                 .buildValidatorFactory();
         Validator validator = factory.getValidator();
 
-        Set<ConstraintViolation<Object>> validateResults = validator.validate(model, groupClass);
+        Set<ConstraintViolation<Object>> validateResults;
+        if (groupClass == null || groupClass.length == 0) {
+            validateResults = validator.validate(model);
+        } else {
+            validateResults = validator.validate(model, groupClass);
+        }
         if (validateResults.isEmpty()) {
             return MapMessage.successMessage();
         }

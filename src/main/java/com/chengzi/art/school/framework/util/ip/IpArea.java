@@ -1,4 +1,4 @@
-package com.chengzi.art.school.oa.util;
+package com.chengzi.art.school.framework.util.ip;
 
 import lombok.Getter;
 import lombok.Setter;

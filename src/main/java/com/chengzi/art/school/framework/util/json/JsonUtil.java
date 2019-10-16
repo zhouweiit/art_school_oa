@@ -1,4 +1,4 @@
-package com.chengzi.art.school.oa.util;
+package com.chengzi.art.school.framework.util.json;
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.JavaType;
@@ -6,7 +6,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-public class JsonUtils {
+public class JsonUtil {
     static ObjectMapper objectMapper = new ObjectMapper();
     static {
         objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);

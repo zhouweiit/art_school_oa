@@ -1,4 +1,4 @@
-package com.chengzi.art.school.oa.util;
+package com.chengzi.art.school.framework.util.encryption;
 
 /**
  * Created by zhouwei on 2018/12/24
@@ -14,10 +14,8 @@ import java.security.interfaces.RSAPrivateKey;
 import java.security.interfaces.RSAPublicKey;
 import java.security.spec.PKCS8EncodedKeySpec;
 import java.security.spec.X509EncodedKeySpec;
-import java.util.HashMap;
-import java.util.Map;
 
-public class RSAEncrypt {
+public class RSAEncryptUtil {
 
     /**
      * 随机生成密钥对

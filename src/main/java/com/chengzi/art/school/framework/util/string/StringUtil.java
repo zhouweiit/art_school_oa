@@ -1,4 +1,4 @@
-package com.chengzi.art.school.oa.util;
+package com.chengzi.art.school.framework.util.string;
 
 import java.util.List;
 
@@ -7,16 +7,14 @@ import com.google.common.collect.Lists;
 /**
  * 字符串工具类
  * 
- * @author ZHOUWEI4
  */
-public class StringUtils {
+public class StringUtil {
 	
 	/**
 	 * 将一个字符串数据使用一个字符相连
 	 * @param infos
 	 * @param str
 	 * @return
-	 * @author ZHOUWEI4
 	 */
 	public static String implode(List<String> infos,String str){
 		if (infos == null || infos.size() == 0){
@@ -37,7 +35,6 @@ public class StringUtils {
 	 * @param infos
 	 * @param str
 	 * @return
-	 * @author ZHOUWEI4
 	 */
 	public static String implode(String[] infos,String str){
 		if (infos == null || infos.length == 0){
@@ -51,7 +48,6 @@ public class StringUtils {
 	 * @param infos
 	 * @param str
 	 * @return
-	 * @author ZHOUWEI4
 	 */
 	public static String[] splitString(String infos,String str){
 		if (infos == null || infos.trim().length() == 0){
