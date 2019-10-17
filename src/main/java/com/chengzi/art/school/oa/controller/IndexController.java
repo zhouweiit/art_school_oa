@@ -3,6 +3,7 @@ package com.chengzi.art.school.oa.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -23,4 +24,21 @@ public class IndexController {
         return mav;
     }
 
+    @RequestMapping(value = "/test", method = {RequestMethod.GET})
+    @ResponseBody
+    public String test() throws Exception {
+        throw new Exception("/test exception");
+    }
+
+    @RequestMapping(value = "/500", method = {RequestMethod.GET})
+    @ResponseBody
+    public String page500() throws Exception {
+        return "500";
+    }
+
+    @RequestMapping(value = "/400", method = {RequestMethod.GET})
+    @ResponseBody
+    public String page400() throws Exception {
+        return "400";
+    }
 }

@@ -21,7 +21,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(new SessionInterceptor());
         registry.addInterceptor(new PermissionInterceptor());
-        registry.addWebRequestInterceptor(new MenuInterceptor());
+        registry.addInterceptor(new MenuInterceptor());
     }
 
     @Override
