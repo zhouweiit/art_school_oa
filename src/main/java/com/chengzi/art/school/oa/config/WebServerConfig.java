@@ -1,9 +1,11 @@
 package com.chengzi.art.school.oa.config;
 
 import org.springframework.boot.web.embedded.jetty.JettyServletWebServerFactory;
+import org.springframework.boot.web.server.ErrorPage;
 import org.springframework.boot.web.server.WebServerFactoryCustomizer;
 import org.springframework.boot.web.servlet.server.Session;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpStatus;
 
 import java.time.Duration;
 
@@ -22,6 +24,10 @@ public class WebServerConfig implements WebServerFactoryCustomizer<JettyServletW
         session.setTimeout(Duration.ofSeconds(30));
         factory.setPort(port);
         factory.setSession(session);
+
+        ErrorPage errorPage404 = new ErrorPage(HttpStatus.NOT_FOUND, "/404");
+        ErrorPage errorPage500 = new ErrorPage(HttpStatus.INTERNAL_SERVER_ERROR, "/500");
+        factory.addErrorPages(errorPage404, errorPage500);
     }
 
 }

@@ -37,9 +37,9 @@ public class IndexFrontController extends FrontAbstractController {
         return "500";
     }
 
-    @RequestMapping(value = "/400", method = {RequestMethod.GET})
+    @RequestMapping(value = "/404", method = {RequestMethod.GET})
     @ResponseBody
     public String page400() throws Exception {
-        return "400";
+        return "404";
     }
 }
