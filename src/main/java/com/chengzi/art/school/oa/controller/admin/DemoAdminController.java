@@ -1,9 +1,11 @@
 package com.chengzi.art.school.oa.controller.admin;
 
+import com.chengzi.art.school.framework.dao.DaoException;
 import com.chengzi.art.school.oa.dto.TableParamDto;
 import com.chengzi.art.school.oa.persistence.mysql.oa.dao.StudentDao;
 import com.chengzi.art.school.oa.persistence.mysql.oa.dao.TeacherDao;
 import com.chengzi.art.school.framework.util.json.JsonUtil;
+import com.chengzi.art.school.oa.persistence.mysql.oa.model.Teacher;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,7 +25,7 @@ import java.util.Map;
 @Controller
 @RequestMapping("/admin/demo")
 @Slf4j
-public class DemoController {
+public class DemoAdminController extends AdminAbstractController {
 
     @Autowired
     private TeacherDao teacherDao;
@@ -74,4 +76,12 @@ public class DemoController {
         mav.setViewName("/view/admin/demo/insert");
         return mav;
     }
+
+    @RequestMapping(value = "/dao", method = {RequestMethod.GET})
+    @ResponseBody
+    public String dao() throws DaoException {
+        Teacher teacher = teacherDao.selectByPrimaryKey(1);
+        return JsonUtil.object2json(teacher);
+    }
+
 }

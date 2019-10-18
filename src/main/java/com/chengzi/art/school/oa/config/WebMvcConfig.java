@@ -1,6 +1,7 @@
 package com.chengzi.art.school.oa.config;
 
 import com.chengzi.art.school.oa.config.interceptors.MenuInterceptor;
+import com.chengzi.art.school.oa.config.interceptors.ParamsInitInterceptor;
 import com.chengzi.art.school.oa.config.interceptors.PermissionInterceptor;
 import com.chengzi.art.school.oa.config.interceptors.SessionInterceptor;
 import org.springframework.context.annotation.Configuration;
@@ -19,6 +20,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor(new ParamsInitInterceptor());
         registry.addInterceptor(new SessionInterceptor());
         registry.addInterceptor(new PermissionInterceptor());
         registry.addInterceptor(new MenuInterceptor());
