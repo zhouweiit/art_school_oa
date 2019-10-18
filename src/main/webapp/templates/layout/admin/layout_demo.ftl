@@ -5,11 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>博美艺术培训学校管理系统</title>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <link rel="stylesheet" href="/widget/admin/bower_components/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/widget/admin/bower_components/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/widget/admin/bower_components/Ionicons/css/ionicons.min.css">
-    <link rel="stylesheet" href="/widget/admin/dist/css/AdminLTE.min.css">
-    <link rel="stylesheet" href="/widget/admin/dist/css/skins/_all-skins.min.css">
+    <link rel="stylesheet" href="/static/widget/admin/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/widget/admin/bower_components/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/widget/admin/bower_components/Ionicons/css/ionicons.min.css">
+    <link rel="stylesheet" href="/static/widget/admin/dist/css/AdminLTE.min.css">
+    <link rel="stylesheet" href="/static/widget/admin/dist/css/skins/_all-skins.min.css">
     <!--[if lt IE 9]>
     <script src="/js/html5shiv.min.js"></script>
     <script src="/js/respond.min.js"></script>
@@ -21,7 +21,7 @@
 <div class="wrapper">
     <#--头信息-->
     <header class="main-header">
-        <a href="/widget/admin/index2.html" class="logo">
+        <a href="/static/widget/admin/index2.html" class="logo">
             <span class="logo-mini"><b>A</b>LT</span>
             <span class="logo-lg"><b>Admin</b>LTE</span>
         </a>
@@ -162,8 +162,8 @@
                             </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="/widget/admin/index.html"><i class="fa fa-circle-o"></i> Dashboard v1</a></li>
-                        <li><a href="/widget/admin/index2.html"><i class="fa fa-circle-o"></i> Dashboard v2</a></li>
+                        <li><a href="/static/widget/admin/index.html"><i class="fa fa-circle-o"></i> Dashboard v1</a></li>
+                        <li><a href="/static/widget/admin/index2.html"><i class="fa fa-circle-o"></i> Dashboard v2</a></li>
                     </ul>
                 </li>
                 <li class="treeview active">
@@ -175,14 +175,14 @@
                         </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="/widget/admin/pages/layout/top-nav.html"><i class="fa fa-circle-o"></i> Top Navigation</a></li>
-                        <li><a href="/widget/admin/pages/layout/boxed.html"><i class="fa fa-circle-o"></i> Boxed</a></li>
-                        <li class="active"><a href="/widget/admin/pages/layout/fixed.html"><i class="fa fa-circle-o"></i> Fixed</a></li>
+                        <li><a href="/static/widget/admin/pages/layout/top-nav.html"><i class="fa fa-circle-o"></i> Top Navigation</a></li>
+                        <li><a href="/static/widget/admin/pages/layout/boxed.html"><i class="fa fa-circle-o"></i> Boxed</a></li>
+                        <li class="active"><a href="/static/widget/admin/pages/layout/fixed.html"><i class="fa fa-circle-o"></i> Fixed</a></li>
                         <li><a href="collapsed-sidebar.html"><i class="fa fa-circle-o"></i> Collapsed Sidebar</a></li>
                     </ul>
                 </li>
                 <li>
-                    <a href="/widget/admin/pages/widgets.html">
+                    <a href="/static/widget/admin/pages/widgets.html">
                         <i class="fa fa-th"></i> <span>Widgets</span>
                         <span class="pull-right-container">
                             <small class="label pull-right bg-green">new</small>
@@ -198,10 +198,10 @@
                         </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="/widget/admin/pages/charts/chartjs.html"><i class="fa fa-circle-o"></i> ChartJS</a></li>
-                        <li><a href="/widget/admin/pages/charts/morris.html"><i class="fa fa-circle-o"></i> Morris</a></li>
-                        <li><a href="/widget/admin/pages/charts/flot.html"><i class="fa fa-circle-o"></i> Flot</a></li>
-                        <li><a href="/widget/admin/pages/charts/inline.html"><i class="fa fa-circle-o"></i> Inline charts</a></li>
+                        <li><a href="/static/widget/admin/pages/charts/chartjs.html"><i class="fa fa-circle-o"></i> ChartJS</a></li>
+                        <li><a href="/static/widget/admin/pages/charts/morris.html"><i class="fa fa-circle-o"></i> Morris</a></li>
+                        <li><a href="/static/widget/admin/pages/charts/flot.html"><i class="fa fa-circle-o"></i> Flot</a></li>
+                        <li><a href="/static/widget/admin/pages/charts/inline.html"><i class="fa fa-circle-o"></i> Inline charts</a></li>
                     </ul>
                 </li>
                 <li class="treeview">
@@ -213,12 +213,12 @@
                         </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="/widget/admin/pages/UI/general.html"><i class="fa fa-circle-o"></i> General</a></li>
-                        <li><a href="/widget/admin/pages/UI/icons.html"><i class="fa fa-circle-o"></i> Icons</a></li>
-                        <li><a href="/widget/admin/pages/UI/buttons.html"><i class="fa fa-circle-o"></i> Buttons</a></li>
-                        <li><a href="/widget/admin/pages/UI/sliders.html"><i class="fa fa-circle-o"></i> Sliders</a></li>
-                        <li><a href="/widget/admin/pages/UI/timeline.html"><i class="fa fa-circle-o"></i> Timeline</a></li>
-                        <li><a href="/widget/admin/pages/UI/modals.html"><i class="fa fa-circle-o"></i> Modals</a></li>
+                        <li><a href="/static/widget/admin/pages/UI/general.html"><i class="fa fa-circle-o"></i> General</a></li>
+                        <li><a href="/static/widget/admin/pages/UI/icons.html"><i class="fa fa-circle-o"></i> Icons</a></li>
+                        <li><a href="/static/widget/admin/pages/UI/buttons.html"><i class="fa fa-circle-o"></i> Buttons</a></li>
+                        <li><a href="/static/widget/admin/pages/UI/sliders.html"><i class="fa fa-circle-o"></i> Sliders</a></li>
+                        <li><a href="/static/widget/admin/pages/UI/timeline.html"><i class="fa fa-circle-o"></i> Timeline</a></li>
+                        <li><a href="/static/widget/admin/pages/UI/modals.html"><i class="fa fa-circle-o"></i> Modals</a></li>
                     </ul>
                 </li>
                 <li class="treeview">
@@ -229,9 +229,9 @@
                         </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="/widget/admin/pages/forms/general.html"><i class="fa fa-circle-o"></i> General Elements</a></li>
-                        <li><a href="/widget/admin/pages/forms/advanced.html"><i class="fa fa-circle-o"></i> Advanced Elements</a></li>
-                        <li><a href="/widget/admin/pages/forms/editors.html"><i class="fa fa-circle-o"></i> Editors</a></li>
+                        <li><a href="/static/widget/admin/pages/forms/general.html"><i class="fa fa-circle-o"></i> General Elements</a></li>
+                        <li><a href="/static/widget/admin/pages/forms/advanced.html"><i class="fa fa-circle-o"></i> Advanced Elements</a></li>
+                        <li><a href="/static/widget/admin/pages/forms/editors.html"><i class="fa fa-circle-o"></i> Editors</a></li>
                     </ul>
                 </li>
                 <li class="treeview">
@@ -242,12 +242,12 @@
                         </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="/widget/admin/pages/tables/simple.html"><i class="fa fa-circle-o"></i> Simple tables</a></li>
-                        <li><a href="/widget/admin/pages/tables/data.html"><i class="fa fa-circle-o"></i> Data tables</a></li>
+                        <li><a href="/static/widget/admin/pages/tables/simple.html"><i class="fa fa-circle-o"></i> Simple tables</a></li>
+                        <li><a href="/static/widget/admin/pages/tables/data.html"><i class="fa fa-circle-o"></i> Data tables</a></li>
                     </ul>
                 </li>
                 <li>
-                    <a href="/widget/admin/pages/calendar.html">
+                    <a href="/static/widget/admin/pages/calendar.html">
                         <i class="fa fa-calendar"></i> <span>Calendar</span>
                         <span class="pull-right-container">
                             <small class="label pull-right bg-red">3</small>
@@ -256,7 +256,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="/widget/admin/pages/mailbox/mailbox.html">
+                    <a href="/static/widget/admin/pages/mailbox/mailbox.html">
                         <i class="fa fa-envelope"></i> <span>Mailbox</span>
                         <span class="pull-right-container">
                             <small class="label pull-right bg-yellow">12</small>
@@ -273,15 +273,15 @@
                         </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="/widget/admin/pages/examples/invoice.html"><i class="fa fa-circle-o"></i> Invoice</a></li>
-                        <li><a href="/widget/admin/pages/examples/profile.html"><i class="fa fa-circle-o"></i> Profile</a></li>
-                        <li><a href="/widget/admin/pages/examples/login.html"><i class="fa fa-circle-o"></i> Login</a></li>
-                        <li><a href="/widget/admin/pages/examples/register.html"><i class="fa fa-circle-o"></i> Register</a></li>
-                        <li><a href="/widget/admin/pages/examples/lockscreen.html"><i class="fa fa-circle-o"></i> Lockscreen</a></li>
-                        <li><a href="/widget/admin/pages/examples/404.html"><i class="fa fa-circle-o"></i> 404 Error</a></li>
-                        <li><a href="/widget/admin/pages/examples/500.html"><i class="fa fa-circle-o"></i> 500 Error</a></li>
-                        <li><a href="/widget/admin/pages/examples/blank.html"><i class="fa fa-circle-o"></i> Blank Page</a></li>
-                        <li><a href="/widget/admin/pages/examples/pace.html"><i class="fa fa-circle-o"></i> Pace Page</a></li>
+                        <li><a href="/static/widget/admin/pages/examples/invoice.html"><i class="fa fa-circle-o"></i> Invoice</a></li>
+                        <li><a href="/static/widget/admin/pages/examples/profile.html"><i class="fa fa-circle-o"></i> Profile</a></li>
+                        <li><a href="/static/widget/admin/pages/examples/login.html"><i class="fa fa-circle-o"></i> Login</a></li>
+                        <li><a href="/static/widget/admin/pages/examples/register.html"><i class="fa fa-circle-o"></i> Register</a></li>
+                        <li><a href="/static/widget/admin/pages/examples/lockscreen.html"><i class="fa fa-circle-o"></i> Lockscreen</a></li>
+                        <li><a href="/static/widget/admin/pages/examples/404.html"><i class="fa fa-circle-o"></i> 404 Error</a></li>
+                        <li><a href="/static/widget/admin/pages/examples/500.html"><i class="fa fa-circle-o"></i> 500 Error</a></li>
+                        <li><a href="/static/widget/admin/pages/examples/blank.html"><i class="fa fa-circle-o"></i> Blank Page</a></li>
+                        <li><a href="/static/widget/admin/pages/examples/pace.html"><i class="fa fa-circle-o"></i> Pace Page</a></li>
                     </ul>
                 </li>
                 <li class="treeview">

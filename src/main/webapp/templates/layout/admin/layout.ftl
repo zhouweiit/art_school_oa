@@ -6,18 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>博美教育管理系统</title>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <link rel="stylesheet" href="/widget/admin/bower_components/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/widget/admin/bower_components/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/widget/admin/bower_components/Ionicons/css/ionicons.min.css">
-    <link rel="stylesheet" href="/widget/admin/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
-    <link rel="stylesheet" href="/widget/admin/dist/css/AdminLTE.min.css">
-    <link rel="stylesheet" href="/widget/admin/dist/css/skins/_all-skins.min.css">
+    <link rel="stylesheet" href="/static/widget/admin/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/widget/admin/bower_components/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/widget/admin/bower_components/Ionicons/css/ionicons.min.css">
+    <link rel="stylesheet" href="/static/widget/admin/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
+    <link rel="stylesheet" href="/static/widget/admin/dist/css/AdminLTE.min.css">
+    <link rel="stylesheet" href="/static/widget/admin/dist/css/skins/_all-skins.min.css">
     <!--[if lt IE 9]>
-    <script src="/js/html5shiv.min.js"></script>
-    <script src="/js/respond.min.js"></script>
+    <script src="/static/js/html5shiv.min.js"></script>
+    <script src="/static/js/respond.min.js"></script>
     <![endif]-->
     <!-- Google Font -->
-    <link rel="stylesheet" href="/css/font.css">
+    <link rel="stylesheet" href="/static/css/font.css">
     <@layout_headercss/>
     <style type="text/css">
         <#-- 调整form 表单中的float右边的按钮间距 -->
@@ -39,7 +39,7 @@
 <div class="wrapper">
     <#--头信息-->
     <header class="main-header">
-        <a href="/widget/admin/index2.html" class="logo">
+        <a href="/static/widget/admin/index2.html" class="logo">
             <span class="logo-mini"><b>博美</b></span>
             <span class="logo-lg"><b>博美教育管理系统</b></span>
         </a>
@@ -65,7 +65,7 @@
                                     <li>
                                         <a href="#">
                                             <div class="pull-left">
-                                                <img src="/widget/admin/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                                                <img src="/static/widget/admin/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
                                             </div>
                                             <h4>
                                                 Support Team
@@ -129,12 +129,12 @@
                     </li>
                     <li class="dropdown user user-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <img src="/widget/admin/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+                            <img src="/static/widget/admin/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
                             <span class="hidden-xs">Alexander Pierce</span>
                         </a>
                         <ul class="dropdown-menu">
                             <li class="user-header">
-                                <img src="/widget/admin/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                                <img src="/static/widget/admin/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
                                 <p>Alexander Pierce - Web Developer<small>Member since Nov. 2012</small></p>
                             </li>
                             <li class="user-body">
@@ -180,8 +180,8 @@
                             </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="/widget/admin/index.html"><i class="fa fa-circle-o"></i> Dashboard v1</a></li>
-                        <li><a href="/widget/admin/index2.html"><i class="fa fa-circle-o"></i> Dashboard v2</a></li>
+                        <li><a href="/static/widget/admin/index.html"><i class="fa fa-circle-o"></i> Dashboard v1</a></li>
+                        <li><a href="/static/widget/admin/index2.html"><i class="fa fa-circle-o"></i> Dashboard v2</a></li>
                     </ul>
                 </li>
                 <li class="treeview active">
@@ -193,9 +193,9 @@
                         </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="/widget/admin/pages/layout/top-nav.html"><i class="fa fa-circle-o"></i> Top Navigation</a></li>
-                        <li><a href="/widget/admin/pages/layout/boxed.html"><i class="fa fa-circle-o"></i> Boxed</a></li>
-                        <li class="active"><a href="/widget/admin/pages/layout/fixed.html"><i class="fa fa-circle-o"></i> Fixed</a></li>
+                        <li><a href="/static/widget/admin/pages/layout/top-nav.html"><i class="fa fa-circle-o"></i> Top Navigation</a></li>
+                        <li><a href="/static/widget/admin/pages/layout/boxed.html"><i class="fa fa-circle-o"></i> Boxed</a></li>
+                        <li class="active"><a href="/static/widget/admin/pages/layout/fixed.html"><i class="fa fa-circle-o"></i> Fixed</a></li>
                         <li><a href="collapsed-sidebar.html"><i class="fa fa-circle-o"></i> Collapsed Sidebar</a></li>
                     </ul>
                 </li>
@@ -234,13 +234,13 @@
     </footer>
 
 </div>
-<script src="/widget/admin/bower_components/jquery/dist/jquery.min.js"></script>
-<script src="/widget/admin/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-<script src="/widget/admin/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
-<script src="/widget/admin/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
-<script src="/widget/admin/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
-<script src="/widget/admin/bower_components/fastclick/lib/fastclick.js"></script>
-<script src="/widget/admin/dist/js/adminlte.min.js"></script>
+<script src="/static/widget/admin/bower_components/jquery/dist/jquery.min.js"></script>
+<script src="/static/widget/admin/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="/static/widget/admin/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="/static/widget/admin/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+<script src="/static/widget/admin/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+<script src="/static/widget/admin/bower_components/fastclick/lib/fastclick.js"></script>
+<script src="/static/widget/admin/dist/js/adminlte.min.js"></script>
 <@layout_footerjs/>
 </body>
 </html>
