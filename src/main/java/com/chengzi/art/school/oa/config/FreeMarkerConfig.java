@@ -26,9 +26,11 @@ public class FreeMarkerConfig{
     @Bean
     public FreeMarkerConfigurer getFreeMarkerConfigurer() {
         FreeMarkerConfigurer freeMarkerConfigurer = new FreeMarkerConfigurer();
+        //配置templates的信息
         freeMarkerConfigurer.setTemplateLoaderPath("classpath:/templates/");
         freeMarkerConfigurer.setDefaultEncoding("UTF-8");
 
+        //配置一些templates的全局变量，可以在freemarker中直接使用
         Map<String, Object> globalVar = new HashMap<>();
         globalVar.put("layout_admin_path", "../../../layout/admin");
         freeMarkerConfigurer.setFreemarkerVariables(globalVar);
