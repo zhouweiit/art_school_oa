@@ -90,4 +90,11 @@ public class DemoAdminController extends AdminAbstractController {
         mav.setViewName("/view/admin/demo/tree");
         return mav;
     }
+
+    @RequestMapping(value = "/gride", method = {RequestMethod.GET})
+    public ModelAndView gride() {
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("/view/admin/demo/gride");
+        return mav;
+    }
 }
