@@ -236,11 +236,12 @@
 </div>
 <script src="/static/widget/admin/bower_components/jquery/dist/jquery.min.js"></script>
 <script src="/static/widget/admin/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="/static/widget/admin/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+<script src="/static/widget/admin/dist/js/adminlte.min.js"></script>
+<script src="/static/widget/admin/bower_components/fastclick/lib/fastclick.js"></script>
 <script src="/static/widget/admin/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
 <script src="/static/widget/admin/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
-<script src="/static/widget/admin/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
-<script src="/static/widget/admin/bower_components/fastclick/lib/fastclick.js"></script>
-<script src="/static/widget/admin/dist/js/adminlte.min.js"></script>
+<script src="/static/widget/treeview/js/bootstrap-treeview.js"></script>
 <@layout_footerjs/>
 </body>
 </html>

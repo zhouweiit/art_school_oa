@@ -84,4 +84,10 @@ public class DemoAdminController extends AdminAbstractController {
         return JsonUtil.object2json(teacher);
     }
 
+    @RequestMapping(value = "/tree", method = {RequestMethod.GET})
+    public ModelAndView tree() {
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("/view/admin/demo/tree");
+        return mav;
+    }
 }
