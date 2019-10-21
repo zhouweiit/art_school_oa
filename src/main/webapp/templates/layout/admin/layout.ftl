@@ -16,8 +16,6 @@
     <script src="/static/js/html5shiv.min.js"></script>
     <script src="/static/js/respond.min.js"></script>
     <![endif]-->
-    <!-- Google Font -->
-    <link rel="stylesheet" href="/static/css/font.css">
     <@layout_headercss/>
     <style type="text/css">
         <#-- 调整form 表单中的float右边的按钮间距 -->
