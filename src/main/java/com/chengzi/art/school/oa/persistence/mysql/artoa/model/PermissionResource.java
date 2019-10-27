@@ -5,17 +5,15 @@ import lombok.Data;
 import java.util.Date;
 
 @Data
-public class Room {
+public class PermissionResource {
 
     private Integer id;
 
-    private String name;
+    private Integer name;
 
-    private Integer maxNum;
+    private Integer parentId;
 
-    private Integer floor;
-
-    private Integer useType;
+    private String uniqueResourceName;
 
     private Integer isDelete;
 
