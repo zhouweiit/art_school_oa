@@ -2,10 +2,10 @@ package com.chengzi.art.school.oa.controller.admin;
 
 import com.chengzi.art.school.framework.dao.DaoException;
 import com.chengzi.art.school.oa.dto.TableParamDto;
-import com.chengzi.art.school.oa.persistence.mysql.oa.dao.StudentDao;
-import com.chengzi.art.school.oa.persistence.mysql.oa.dao.TeacherDao;
+import com.chengzi.art.school.oa.persistence.mysql.artoa.dao.ClazzDao;
 import com.chengzi.art.school.framework.util.json.JsonUtil;
-import com.chengzi.art.school.oa.persistence.mysql.oa.model.Teacher;
+import com.chengzi.art.school.oa.persistence.mysql.artoa.dao.ClazzScheduleDao;
+import com.chengzi.art.school.oa.persistence.mysql.artoa.model.ClazzSchedule;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -28,10 +28,10 @@ import java.util.Map;
 public class DemoAdminController extends AdminAbstractController {
 
     @Autowired
-    private TeacherDao teacherDao;
+    private ClazzScheduleDao clazzScheduleDao;
 
     @Autowired
-    private StudentDao studentDao;
+    private ClazzDao clazzDao;
 
     @RequestMapping(value = "/table", method = {RequestMethod.GET})
     public ModelAndView login() {
@@ -80,8 +80,8 @@ public class DemoAdminController extends AdminAbstractController {
     @RequestMapping(value = "/dao", method = {RequestMethod.GET})
     @ResponseBody
     public String dao() throws DaoException {
-        Teacher teacher = teacherDao.selectByPrimaryKey(1);
-        return JsonUtil.object2json(teacher);
+        ClazzSchedule clazzSchedule = clazzScheduleDao.selectByPrimaryKey(1);
+        return JsonUtil.object2json(clazzSchedule);
     }
 
     @RequestMapping(value = "/tree", method = {RequestMethod.GET})

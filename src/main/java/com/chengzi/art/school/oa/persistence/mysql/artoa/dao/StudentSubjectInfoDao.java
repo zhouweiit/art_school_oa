@@ -1,14 +1,15 @@
-package com.chengzi.art.school.oa.persistence.mysql.oa.dao;
+package com.chengzi.art.school.oa.persistence.mysql.artoa.dao;
 
 import com.chengzi.art.school.framework.dao.AbstractDaoSupport;
-import com.chengzi.art.school.oa.persistence.mysql.oa.model.Student;
+import com.chengzi.art.school.oa.persistence.mysql.artoa.model.Clazz;
+import com.chengzi.art.school.oa.persistence.mysql.artoa.model.StudentSubjectInfo;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class StudentDao extends AbstractDaoSupport<Student, Integer> {
+public class StudentSubjectInfoDao extends AbstractDaoSupport<StudentSubjectInfo, Integer> {
 
     @Autowired
     @Qualifier("OASqlSession")
@@ -21,7 +22,7 @@ public class StudentDao extends AbstractDaoSupport<Student, Integer> {
 
     @Override
     protected String getNamespace() {
-        return Student.class.getName();
+        return Clazz.class.getName();
     }
 
 }

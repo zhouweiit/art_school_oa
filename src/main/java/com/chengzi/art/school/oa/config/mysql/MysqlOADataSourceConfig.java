@@ -1,8 +1,7 @@
 package com.chengzi.art.school.oa.config.mysql;
 
 
-import com.chengzi.art.school.oa.persistence.mysql.oa.model.Student;
-import com.chengzi.art.school.oa.persistence.mysql.oa.model.Teacher;
+import com.chengzi.art.school.oa.persistence.mysql.artoa.model.*;
 import org.apache.commons.dbcp.BasicDataSource;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
@@ -63,14 +62,30 @@ public class MysqlOADataSourceConfig {
         sqlSessionFactoryBean.setDataSource(dataSource);
         //注册相关的XML
         sqlSessionFactoryBean.setMapperLocations(
-            new ClassPathResource("/com/chengzi/art/school/oa/persistence/mysql/oa/model/teacher.xml"),
-            new ClassPathResource("/com/chengzi/art/school/oa/persistence/mysql/oa/model/student.xml")
+                new ClassPathResource("/com/chengzi/art/school/oa/persistence/mysql/artoa/model/Clazz.xml"),
+                new ClassPathResource("/com/chengzi/art/school/oa/persistence/mysql/artoa/model/ClazzSchedule.xml"),
+                new ClassPathResource("/com/chengzi/art/school/oa/persistence/mysql/artoa/model/ClazzStudentRef.xml"),
+                new ClassPathResource("/com/chengzi/art/school/oa/persistence/mysql/artoa/model/ClazzTeacherRef.xml"),
+                new ClassPathResource("/com/chengzi/art/school/oa/persistence/mysql/artoa/model/Room.xml"),
+                new ClassPathResource("/com/chengzi/art/school/oa/persistence/mysql/artoa/model/School.xml"),
+                new ClassPathResource("/com/chengzi/art/school/oa/persistence/mysql/artoa/model/SchoolGroup.xml"),
+                new ClassPathResource("/com/chengzi/art/school/oa/persistence/mysql/artoa/model/StudentSubjectInfo.xml"),
+                new ClassPathResource("/com/chengzi/art/school/oa/persistence/mysql/artoa/model/StudentSubjectSignup.xml"),
+                new ClassPathResource("/com/chengzi/art/school/oa/persistence/mysql/artoa/model/User.xml")
         );
 
         org.apache.ibatis.session.Configuration configuration = new org.apache.ibatis.session.Configuration();
         //注册相关的类的别名
-        configuration.getTypeAliasRegistry().registerAlias("teacher", Teacher.class);
-        configuration.getTypeAliasRegistry().registerAlias("student", Student.class);
+        configuration.getTypeAliasRegistry().registerAlias("Clazz", ClazzSchedule.class);
+        configuration.getTypeAliasRegistry().registerAlias("ClazzSchedule", Clazz.class);
+        configuration.getTypeAliasRegistry().registerAlias("ClazzStudentRef", ClazzStudentRef.class);
+        configuration.getTypeAliasRegistry().registerAlias("ClazzTeacherRef", ClazzTeacherRef.class);
+        configuration.getTypeAliasRegistry().registerAlias("Room", Room.class);
+        configuration.getTypeAliasRegistry().registerAlias("School", School.class);
+        configuration.getTypeAliasRegistry().registerAlias("SchoolGroup", SchoolGroup.class);
+        configuration.getTypeAliasRegistry().registerAlias("StudentSubjectInfo", StudentSubjectInfo.class);
+        configuration.getTypeAliasRegistry().registerAlias("StudentSubjectSignUp", StudentSubjectSignup.class);
+        configuration.getTypeAliasRegistry().registerAlias("User", User.class);
         sqlSessionFactoryBean.setConfiguration(configuration);
         return sqlSessionFactoryBean.getObject();
     }
