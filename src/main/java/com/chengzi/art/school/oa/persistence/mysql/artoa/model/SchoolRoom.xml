@@ -3,7 +3,7 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.chengzi.art.school.oa.persistence.mysql.artoa.model.SchoolRoom">
-    <select id="selectByPrimaryKey" resultType="Room" parameterType="int">
+    <select id="selectByPrimaryKey" resultType="SchoolRoom" parameterType="int">
         select * from school_room where id = #{id} and is_delete = 0
     </select>
 </mapper>

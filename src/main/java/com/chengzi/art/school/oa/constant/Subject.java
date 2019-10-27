@@ -1,5 +1,8 @@
 package com.chengzi.art.school.oa.constant;
 
+import lombok.Getter;
+
+@Getter
 public enum Subject {
 
     Painting(1, "美术");

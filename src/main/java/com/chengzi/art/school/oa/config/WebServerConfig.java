@@ -26,8 +26,11 @@ public class WebServerConfig implements WebServerFactoryCustomizer<JettyServletW
         factory.setSession(session);
 
         ErrorPage errorPage404 = new ErrorPage(HttpStatus.NOT_FOUND, "/404");
+        ErrorPage errorPage405 = new ErrorPage(HttpStatus.METHOD_NOT_ALLOWED, "/404");
         ErrorPage errorPage500 = new ErrorPage(HttpStatus.INTERNAL_SERVER_ERROR, "/500");
-        factory.addErrorPages(errorPage404, errorPage500);
+        ErrorPage errorPage502 = new ErrorPage(HttpStatus.BAD_GATEWAY, "/500");
+        ErrorPage errorPage504 = new ErrorPage(HttpStatus.GATEWAY_TIMEOUT, "/500");
+        factory.addErrorPages(errorPage404, errorPage405, errorPage500, errorPage502, errorPage504);
     }
 
 }

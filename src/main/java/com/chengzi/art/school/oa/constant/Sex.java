@@ -1,5 +1,8 @@
 package com.chengzi.art.school.oa.constant;
 
+import lombok.Getter;
+
+@Getter
 public enum Sex {
 
     Boy(1, "男"),

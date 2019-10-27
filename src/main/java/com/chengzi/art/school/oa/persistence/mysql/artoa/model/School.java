@@ -15,8 +15,6 @@ public class School {
 
     private String simpleName;
 
-    private String logoImgUrl;
-
     private String introduce;
 
     private String address;

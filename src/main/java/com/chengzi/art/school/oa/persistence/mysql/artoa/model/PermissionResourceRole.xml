@@ -6,4 +6,12 @@
     <select id="selectByPrimaryKey" resultType="PermissionResourceRole" parameterType="int">
         select * from permission_resource_role where id = #{id} and is_delete = 0
     </select>
+
+    <select id="selectByRoleIds" resultType="PermissionResourceRole" parameterType="java.util.Map">
+        <foreach collection="roleIds" item="id" index="index"
+                 open="(" close=")" separator=",">
+            #{id}
+        </foreach>
+    </select>
+
 </mapper>

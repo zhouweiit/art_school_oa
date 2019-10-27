@@ -6,4 +6,8 @@
     <select id="selectByPrimaryKey" resultType="PermissionResource" parameterType="int">
         select * from permission_resource where id = #{id} and is_delete = 0
     </select>
+
+    <select id="selectAll" resultType="java.util.List">
+        select * from permission_resource where is_delete = 0
+    </select>
 </mapper>
