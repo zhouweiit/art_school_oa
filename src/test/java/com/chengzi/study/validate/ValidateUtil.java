@@ -17,7 +17,7 @@ public class ValidateUtil {
      * @param model 领域模型
      * @return 校验结果
      */
-    public static MapMessage validate(Object model, Class... groupClass) {
+    public static boolean validate(Object model, Class... groupClass) {
         // ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
         ValidatorFactory factory = Validation.byProvider(HibernateValidator.class)
                 .configure()
@@ -32,7 +32,8 @@ public class ValidateUtil {
             validateResults = validator.validate(model, groupClass);
         }
         if (validateResults.isEmpty()) {
-            return MapMessage.successMessage();
+            System.out.println("成功");
+            return true;
         }
 
         String errorMessage = validateResults
@@ -41,11 +42,8 @@ public class ValidateUtil {
                 .map(ConstraintViolation::getMessage)
                 .orElse("参数错误");
 
-        return MapMessage.errorMessage(errorMessage).setErrorCode("400");
-    }
-
-    public static MapMessage validate(Object model) {
-        return ValidateUtil.validate(model);
+        System.out.println(errorMessage);
+        return false;
     }
 
 }
