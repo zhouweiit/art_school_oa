@@ -21,7 +21,7 @@ public class SchoolConfigDao extends AbstractDaoSupport<SchoolConfigDao, Integer
 
     @Override
     protected String getNamespace() {
-        return Clazz.class.getName();
+        return SchoolConfigDao.class.getName();
     }
 
 }

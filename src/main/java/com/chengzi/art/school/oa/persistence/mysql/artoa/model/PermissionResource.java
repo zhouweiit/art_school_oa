@@ -19,6 +19,14 @@ public class PermissionResource {
 
     private String uniqueResourceName;
 
+    private Integer type;
+
+    private String url;
+
+    private String icon;
+
+    private Integer order;
+
     private Integer isDelete;
 
     private Date createDatetime;

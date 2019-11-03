@@ -46,7 +46,7 @@
     <header class="main-header">
         <a href="/static/widget/admin/index2.html" class="logo">
             <span class="logo-mini"><b>博美</b></span>
-            <span class="logo-lg"><b>博美教育管理系统</b></span>
+            <span class="logo-lg"><b>博美助教系统</b></span>
         </a>
         <nav class="navbar navbar-static-top">
             <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
@@ -177,34 +177,27 @@
     <aside class="main-sidebar">
         <section class="sidebar">
             <ul class="sidebar-menu" data-widget="tree">
-                <li class="treeview">
-                    <a href="#">
-                        <i class="fa fa-dashboard"></i> <span>博美教育</span>
-                            <span class="pull-right-container">
-                                <i class="fa fa-angle-left pull-right"></i>
-                            </span>
-                    </a>
-                    <ul class="treeview-menu">
-                        <li><a href="/static/widget/admin/index.html"><i class="fa fa-circle-o"></i> Dashboard v1</a></li>
-                        <li><a href="/static/widget/admin/index2.html"><i class="fa fa-circle-o"></i> Dashboard v2</a></li>
-                    </ul>
+            <#list _menu_dto_key_ as item>
+                <#if item.menuTreeDtos?size == 0>
+                <li <#if item.url == _servlet_path_>class="active"</#if>>
+                    <a href="${item.url}"><i class="fa ${item.icon}"></i><span>${item.name}</span></a>
                 </li>
-                <li class="treeview active">
+                <#else>
+                <li class="treeview <#list item.menuTreeDtos as childItem> <#if childItem.url == _servlet_path_>active menu-open</#if> </#list>">
                     <a href="#">
-                        <i class="fa fa-files-o"></i>
-                        <span>页面分层</span>
+                        <i class="fa ${item.icon}"></i><span>${item.name}</span>
                         <span class="pull-right-container">
-                            <i class="fa fa-angle-left pull-right"></i>
-                        </span>
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="/static/widget/admin/pages/layout/top-nav.html"><i class="fa fa-circle-o"></i> Top Navigation</a></li>
-                        <li><a href="/static/widget/admin/pages/layout/boxed.html"><i class="fa fa-circle-o"></i> Boxed</a></li>
-                        <li class="active"><a href="/static/widget/admin/pages/layout/fixed.html"><i class="fa fa-circle-o"></i> Fixed</a></li>
-                        <li><a href="collapsed-sidebar.html"><i class="fa fa-circle-o"></i> Collapsed Sidebar</a></li>
+                        <#list item.menuTreeDtos as childItem>
+                            <li <#if childItem.url == _servlet_path_>class="active"</#if>><a href="${childItem.url}"><i class="fa fa-circle-o"></i>${childItem.name}</a></li>
+                        </#list>
                     </ul>
                 </li>
-            </ul>
+                </#if>
+            </#list>
         </section>
     </aside>
 

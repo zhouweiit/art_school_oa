@@ -22,6 +22,12 @@ public class WebServerConfig implements WebServerFactoryCustomizer<JettyServletW
     public void customize(JettyServletWebServerFactory factory) {
         factory.setPort(port);
 
+        /**
+         * 目前发现一个问题：
+         *
+         * 1.error_page只对controller里面的action生效
+         * 2.对interceptor内容不生效
+         */
         ErrorPage errorPage404 = new ErrorPage(HttpStatus.NOT_FOUND, "/404");
         ErrorPage errorPage405 = new ErrorPage(HttpStatus.METHOD_NOT_ALLOWED, "/404");
         ErrorPage errorPage500 = new ErrorPage(HttpStatus.INTERNAL_SERVER_ERROR, "/500");

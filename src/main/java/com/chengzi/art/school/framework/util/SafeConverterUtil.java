@@ -4,7 +4,10 @@ public class SafeConverterUtil {
 
     public static Boolean toBoolean(Object obj) {
         try {
-            return (Boolean) obj;
+            if (obj instanceof Boolean) {
+                return (Boolean) obj;
+            }
+            return Boolean.valueOf(String.valueOf(obj));
         } catch (Exception e) {
             return null;
         }
@@ -15,7 +18,7 @@ public class SafeConverterUtil {
             if (null == obj) {
                 return defaultValue;
             }
-            return (Boolean) obj;
+            return toBoolean(obj);
         } catch (Exception e) {
             return defaultValue;
         }
@@ -23,7 +26,10 @@ public class SafeConverterUtil {
 
     public static Integer toInteger(Object obj) {
         try {
-            return (Integer) obj;
+            if (obj instanceof Integer) {
+                return (Integer) obj;
+            }
+            return Integer.valueOf(String.valueOf(obj));
         } catch (Exception e) {
             return null;
         }
@@ -34,7 +40,7 @@ public class SafeConverterUtil {
             if (null == obj) {
                 return defaultValue;
             }
-            return (Integer) obj;
+            return toInteger(obj);
         } catch (Exception e) {
             return defaultValue;
         }
@@ -42,7 +48,10 @@ public class SafeConverterUtil {
 
     public static Float toFloat(Object obj) {
         try {
-            return (Float) obj;
+            if (obj instanceof Float) {
+                return (Float) obj;
+            }
+            return Float.valueOf(String.valueOf(obj));
         } catch (Exception e) {
             return null;
         }
@@ -53,7 +62,7 @@ public class SafeConverterUtil {
             if (null == obj) {
                 return defaultValue;
             }
-            return (Float) obj;
+            return toFloat(obj);
         } catch (Exception e) {
             return defaultValue;
         }

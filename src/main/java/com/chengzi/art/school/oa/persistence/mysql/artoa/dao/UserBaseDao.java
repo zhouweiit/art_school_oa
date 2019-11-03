@@ -22,7 +22,7 @@ public class UserBaseDao extends AbstractDaoSupport<UserBase, Integer> {
 
     @Override
     protected String getNamespace() {
-        return Clazz.class.getName();
+        return UserBase.class.getName();
     }
 
 }

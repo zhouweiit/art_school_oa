@@ -18,47 +18,23 @@ public abstract class AbstractDaoSupport<T, ID extends Serializable> implements 
 
 	protected abstract String getNamespace();
 
-	public int deleteSoftByPrimaryKey(ID id) throws DaoException{
-		try {
-			getSqlSessionTemplate().delete(getNamespace() + ".deleteSoftByPrimaryKey", id);
-			return 0;
-		} catch (Exception e) {
-			throw new DaoException(e.getMessage(),e);
-		}
+	public int deleteSoftByPrimaryKey(ID id) {
+		return getSqlSessionTemplate().update(getNamespace() + ".deleteSoftByPrimaryKey", id);
 	}
 
 	public int deleteByPrimaryKey(ID id) throws DaoException{
-		try {
-			getSqlSessionTemplate().delete(getNamespace() + ".deleteByPrimaryKey", id);
-			return 0;
-		} catch (Exception e) {
-			throw new DaoException(e.getMessage(),e);
-		}
+		return getSqlSessionTemplate().delete(getNamespace() + ".deleteByPrimaryKey", id);
 	}
 
-	public int insert(T record) throws DaoException{
-		try {
-    			return getSqlSessionTemplate().insert(getNamespace() + ".insert", record);
-		} catch (Exception e) {
-			throw new DaoException(e.getMessage(),e);
-		}
+	public int insert(T record) {
+		return getSqlSessionTemplate().insert(getNamespace() + ".insert", record);
 	}
 
-	public T selectByPrimaryKey(ID id) throws DaoException{
-		try {
-			T t = getSqlSessionTemplate().selectOne(getNamespace() + ".selectByPrimaryKey", id);
-			return t;
-		} catch (Exception e) {
-			throw new DaoException(e.getMessage(),e);
-		}
+	public T selectByPrimaryKey(ID id) {
+		return getSqlSessionTemplate().selectOne(getNamespace() + ".selectByPrimaryKey", id);
 	}
 
-	public int updateByPrimaryKey(T record) throws DaoException{
-		try {
-			getSqlSessionTemplate().update(getNamespace() + ".updateByPrimaryKey", record);
-			return 0;
-		} catch (Exception e) {
-			throw new DaoException(e.getMessage(),e);
-		}
+	public int updateByPrimaryKey(T record) {
+		return getSqlSessionTemplate().update(getNamespace() + ".updateByPrimaryKey", record);
 	}
 }

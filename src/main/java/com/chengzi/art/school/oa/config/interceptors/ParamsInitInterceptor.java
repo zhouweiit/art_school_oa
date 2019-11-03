@@ -4,6 +4,7 @@ import com.chengzi.art.school.framework.controller.ControllerContext;
 import com.chengzi.art.school.oa.controller.AbstractController;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.method.HandlerMethod;
+import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
@@ -14,7 +15,7 @@ import java.lang.reflect.Field;
  * Created by zhouwei on 2019/10/18
  **/
 @Slf4j
-public class ParamsInitInterceptor extends AbstractInterceptor {
+public class ParamsInitInterceptor implements HandlerInterceptor {
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
@@ -41,7 +42,8 @@ public class ParamsInitInterceptor extends AbstractInterceptor {
             return true;
         } catch (Exception e) {
             log.error("errorMessage:{}, url:{}", e.getMessage(), request.getRequestURL(), e);
-            throw e;
+            response.sendRedirect("/500");
+            return false;
         }
     }
 
@@ -66,6 +68,7 @@ public class ParamsInitInterceptor extends AbstractInterceptor {
             }
         } catch (Exception e) {
             log.error(e.getMessage(), e);
+            response.sendRedirect("/500");
         }
     }
 

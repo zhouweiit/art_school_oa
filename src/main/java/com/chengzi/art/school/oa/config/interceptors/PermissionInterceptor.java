@@ -2,6 +2,7 @@ package com.chengzi.art.school.oa.config.interceptors;
 
 import com.chengzi.art.school.oa.controller.AbstractController;
 import com.chengzi.art.school.oa.controller.admin.AdminAbstractController;
+import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.Cookie;
@@ -12,7 +13,7 @@ import javax.servlet.http.HttpSession;
 /**
  * Created by zhouwei on 2018/12/29
  **/
-public class PermissionInterceptor extends AbstractInterceptor {
+public class PermissionInterceptor implements HandlerInterceptor {
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {

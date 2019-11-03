@@ -22,7 +22,7 @@ public class SchoolGroupDao extends AbstractDaoSupport<SchoolGroup, Integer> {
 
     @Override
     protected String getNamespace() {
-        return Clazz.class.getName();
+        return SchoolGroup.class.getName();
     }
 
 }

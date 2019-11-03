@@ -1,4 +1,4 @@
-package com.chengzi.art.school.oa.dto;
+package com.chengzi.art.school.oa.dto.response;
 
 import lombok.Data;
 

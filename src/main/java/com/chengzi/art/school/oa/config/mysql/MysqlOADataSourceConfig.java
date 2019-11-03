@@ -79,6 +79,7 @@ public class MysqlOADataSourceConfig {
         );
 
         org.apache.ibatis.session.Configuration configuration = new org.apache.ibatis.session.Configuration();
+        configuration.setMapUnderscoreToCamelCase(true);
         //注册相关的类的别名
         configuration.getTypeAliasRegistry().registerAlias("Clazz", ClazzSchedule.class);
         configuration.getTypeAliasRegistry().registerAlias("ClazzSchedule", Clazz.class);

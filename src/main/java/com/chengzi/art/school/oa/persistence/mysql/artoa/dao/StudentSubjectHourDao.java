@@ -22,7 +22,7 @@ public class StudentSubjectHourDao extends AbstractDaoSupport<StudentSubjectHour
 
     @Override
     protected String getNamespace() {
-        return Clazz.class.getName();
+        return StudentSubjectHour.class.getName();
     }
 
 }

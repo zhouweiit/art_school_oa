@@ -24,6 +24,6 @@ public class ClazzScheduleDao extends AbstractDaoSupport<ClazzSchedule, Integer>
 
     @Override
     protected String getNamespace() {
-        return ClazzScheduleDao.class.getName();
+        return ClazzSchedule.class.getName();
     }
 }

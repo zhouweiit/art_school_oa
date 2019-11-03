@@ -1,7 +1,7 @@
 package com.chengzi.art.school.oa.controller.admin;
 
 import com.chengzi.art.school.framework.dao.DaoException;
-import com.chengzi.art.school.oa.dto.TableParamDto;
+import com.chengzi.art.school.oa.dto.response.TableParamDto;
 import com.chengzi.art.school.oa.persistence.mysql.artoa.dao.ClazzDao;
 import com.chengzi.art.school.framework.util.JsonUtil;
 import com.chengzi.art.school.oa.persistence.mysql.artoa.dao.ClazzScheduleDao;
@@ -25,7 +25,7 @@ import java.util.Map;
 @Controller
 @RequestMapping("/admin/demo")
 @Slf4j
-public class DemoAdminController extends AdminAbstractController {
+public class DemoController extends AdminAbstractController {
 
     @Autowired
     private ClazzScheduleDao clazzScheduleDao;

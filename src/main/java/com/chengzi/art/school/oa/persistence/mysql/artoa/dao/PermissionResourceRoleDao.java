@@ -8,6 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 @Repository
 public class PermissionResourceRoleDao extends AbstractDaoSupport<PermissionResourceRole, Integer> {
 
@@ -22,7 +27,13 @@ public class PermissionResourceRoleDao extends AbstractDaoSupport<PermissionReso
 
     @Override
     protected String getNamespace() {
-        return Clazz.class.getName();
+        return PermissionResourceRole.class.getName();
+    }
+
+    public List<PermissionResourceRole> selectByIds(Collection<Integer> roleIds) {
+        Map<String, Object> params = new HashMap<>();
+        params.put("roleIds", roleIds);
+        return sqlSessionTemplate.selectList(getNamespace() + ".selectByIds", params);
     }
 
 }

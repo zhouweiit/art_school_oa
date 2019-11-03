@@ -20,7 +20,7 @@ import java.io.OutputStream;
 @Controller
 @RequestMapping("/admin/login")
 @Slf4j
-public class LoginAdminController {
+public class LoginController {
 
     @RequestMapping(value = "/view", method = {RequestMethod.GET})
     @ResponseBody
