@@ -1,7 +1,6 @@
 package com.chengzi.art.school.oa.persistence.mysql.artoa.dao;
 
 import com.chengzi.art.school.framework.dao.AbstractDaoSupport;
-import com.chengzi.art.school.oa.persistence.mysql.artoa.model.Clazz;
 import com.chengzi.art.school.oa.persistence.mysql.artoa.model.PermissionResource;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +23,7 @@ public class PermissionResourceDao extends AbstractDaoSupport<PermissionResource
 
     @Override
     protected String getNamespace() {
-        return Clazz.class.getName();
+        return PermissionResource.class.getName();
     }
 
     public List<PermissionResource> selectAll() {

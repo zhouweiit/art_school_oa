@@ -19,21 +19,24 @@ public class ParamsInitInterceptor extends AbstractInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         try {
-            //这个地方需要配置好相关内容，只有正常的controller到action，才是HandlerMethod，否则会有其他handler进来，如ResouceHandlerMethod，用来处理静态资源
+            //这个地方需要配置好相关内容，只有正常的controller到action，才是HandlerMethod，否则会有其他handler进来，如ResourceHandlerMethod，用来处理静态资源
             //如何配置呢：1.配置相关的静态资源不进spring拦截器.2.配置好404、500等异常，否则他们也会悄悄摸摸跑进来，让你处理
-            HandlerMethod handlerMethod = (HandlerMethod) handler;
-            if (handlerMethod.getBean() instanceof AbstractController) {
-                AbstractController controller = (AbstractController) handlerMethod.getBean();
-                Field field = AbstractController.class.getDeclaredField("controllerContext");
-                if (null == field) {
-                    log.error("AbstractController's controllerContext miss");
-                    return false;
+            if (handler instanceof HandlerMethod) {
+                HandlerMethod handlerMethod = (HandlerMethod) handler;
+                if (handlerMethod.getBean() instanceof AbstractController) {
+                    AbstractController controller = (AbstractController) handlerMethod.getBean();
+                    Field field = AbstractController.class.getDeclaredField("controllerContext");
+                    if (null == field) {
+                        log.error("AbstractController's controllerContext miss");
+                        return false;
+                    }
+                    field.setAccessible(true);
+                    ControllerContext controllerContext = new ControllerContext();
+                    controllerContext.setRequest(request);
+                    controllerContext.setResponse(response);
+                    controllerContext.setSession(request.getSession());
+                    field.set(controller, controllerContext);
                 }
-                field.setAccessible(true);
-                ControllerContext controllerContext = new ControllerContext();
-                controllerContext.setRequest(request);
-                controllerContext.setResponse(response);
-                field.set(controller, controllerContext);
             }
             return true;
         } catch (Exception e) {
@@ -49,15 +52,17 @@ public class ParamsInitInterceptor extends AbstractInterceptor {
     @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
         try {
-            HandlerMethod handlerMethod = (HandlerMethod) handler;
-            if (handlerMethod.getBean() instanceof AbstractController) {
-                AbstractController controller = (AbstractController) handlerMethod.getBean();
-                Field field = AbstractController.class.getDeclaredField("controllerContext");
-                if (null == field) {
-                    log.error("AbstractController's controllerContext miss");
+            if (handler instanceof HandlerMethod) {
+                HandlerMethod handlerMethod = (HandlerMethod) handler;
+                if (handlerMethod.getBean() instanceof AbstractController) {
+                    AbstractController controller = (AbstractController) handlerMethod.getBean();
+                    Field field = AbstractController.class.getDeclaredField("controllerContext");
+                    if (null == field) {
+                        log.error("AbstractController's controllerContext miss");
+                    }
+                    field.setAccessible(true);
+                    field.set(controller, null);
                 }
-                field.setAccessible(true);
-                field.set(controller, null);
             }
         } catch (Exception e) {
             log.error(e.getMessage(), e);

@@ -1,11 +1,15 @@
 package com.chengzi.art.school.oa.persistence.mysql.artoa.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.Date;
 
 @Data
-public class StudentSubjectInfo {
+@AllArgsConstructor
+@NoArgsConstructor
+public class StudentSubjectHour {
 
     private Integer id;
 
@@ -13,11 +17,13 @@ public class StudentSubjectInfo {
 
     private Integer subject;
 
-    private Integer totalMinuteNum;
+    private Integer totalClazzHour;
 
-    private Integer leftMinuteNum;
+    private Integer leftClazzHour;
 
     private String checkLog;
+
+    private Integer schoolGroupId;
 
     private Integer isDelete;
 

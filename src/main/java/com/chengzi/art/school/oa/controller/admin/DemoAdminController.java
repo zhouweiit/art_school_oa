@@ -3,7 +3,7 @@ package com.chengzi.art.school.oa.controller.admin;
 import com.chengzi.art.school.framework.dao.DaoException;
 import com.chengzi.art.school.oa.dto.TableParamDto;
 import com.chengzi.art.school.oa.persistence.mysql.artoa.dao.ClazzDao;
-import com.chengzi.art.school.framework.util.json.JsonUtil;
+import com.chengzi.art.school.framework.util.JsonUtil;
 import com.chengzi.art.school.oa.persistence.mysql.artoa.dao.ClazzScheduleDao;
 import com.chengzi.art.school.oa.persistence.mysql.artoa.model.ClazzSchedule;
 import lombok.extern.slf4j.Slf4j;

@@ -1,4 +1,4 @@
-package com.chengzi.art.school.framework.util.bean;
+package com.chengzi.art.school.framework.util;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.util.Assert;

@@ -1,4 +1,4 @@
-package com.chengzi.art.school.framework.util.math;
+package com.chengzi.art.school.framework.util;
 
 public class MathUtil {
 	

@@ -1,4 +1,4 @@
-package com.chengzi.art.school.framework.util.string;
+package com.chengzi.art.school.framework.util;
 
 import java.util.List;
 

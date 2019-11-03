@@ -1,6 +1,6 @@
 package com.chengzi.art.school.framework.task;
 
-import com.chengzi.art.school.framework.util.json.JsonUtil;
+import com.chengzi.art.school.framework.util.JsonUtil;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 

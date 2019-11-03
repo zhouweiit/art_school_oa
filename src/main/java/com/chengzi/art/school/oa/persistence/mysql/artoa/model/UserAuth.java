@@ -1,39 +1,31 @@
 package com.chengzi.art.school.oa.persistence.mysql.artoa.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.Date;
 
 @Data
-public class User {
+@AllArgsConstructor
+@NoArgsConstructor
+public class UserAuth {
 
-    private Integer id;
-
-    private String name;
+    private Integer userBaseId;
 
     private String loginName;
 
     private String salt;
 
-    private String password;
-
-    private Integer userType;
-
-    private Integer schoolGroupId;
+    private String loginPassword;
 
     private String roleId;
 
     private String permissionResourceId;
 
-    private String phone;
-
-    private Integer age;
-
-    private Integer sex;
-
-    private String address;
-
     private Date lastLoginDatetime;
+
+    private Integer schoolGroupId;
 
     private Integer isDelete;
 

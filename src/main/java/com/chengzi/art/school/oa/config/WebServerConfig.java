@@ -20,10 +20,7 @@ public class WebServerConfig implements WebServerFactoryCustomizer<JettyServletW
 
     @Override
     public void customize(JettyServletWebServerFactory factory) {
-        Session session = new Session();
-        session.setTimeout(Duration.ofSeconds(30));
         factory.setPort(port);
-        factory.setSession(session);
 
         ErrorPage errorPage404 = new ErrorPage(HttpStatus.NOT_FOUND, "/404");
         ErrorPage errorPage405 = new ErrorPage(HttpStatus.METHOD_NOT_ALLOWED, "/404");

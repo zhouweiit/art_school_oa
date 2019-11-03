@@ -21,10 +21,10 @@ public class WebMvcConfig implements WebMvcConfigurer {
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        List<String> excludePathPatterns = Lists.newArrayList("/static/**", "/favicon.ico");
-        registry.addInterceptor(new ParamsInitInterceptor()).addPathPatterns("/admin/**").excludePathPatterns(excludePathPatterns);
-        registry.addInterceptor(new SessionInterceptor()).addPathPatterns("/admin/**").excludePathPatterns(excludePathPatterns);
-        registry.addInterceptor(new PermissionInterceptor()).addPathPatterns("/admin/**").excludePathPatterns(excludePathPatterns);
+        List<String> excludePathPatterns = Lists.newArrayList("/static/**", "/favicon.ico", "/admin/login/**");
+        registry.addInterceptor(new SessionInterceptor()).addPathPatterns("/admin/**").excludePathPatterns(excludePathPatterns).order(1);
+        registry.addInterceptor(new ParamsInitInterceptor()).addPathPatterns("/admin/**").excludePathPatterns(excludePathPatterns).order(2);
+        registry.addInterceptor(new PermissionInterceptor()).addPathPatterns("/admin/**").excludePathPatterns(excludePathPatterns).order(3);
         registry.addInterceptor(new MenuInterceptor()).addPathPatterns("/admin/**").excludePathPatterns(excludePathPatterns).order(10);
     }
 

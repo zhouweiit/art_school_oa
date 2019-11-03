@@ -2,14 +2,14 @@ package com.chengzi.art.school.oa.persistence.mysql.artoa.dao;
 
 import com.chengzi.art.school.framework.dao.AbstractDaoSupport;
 import com.chengzi.art.school.oa.persistence.mysql.artoa.model.Clazz;
-import com.chengzi.art.school.oa.persistence.mysql.artoa.model.StudentSubjectSignup;
+import com.chengzi.art.school.oa.persistence.mysql.artoa.model.UserAuth;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class StudentSubjectSignupDao extends AbstractDaoSupport<StudentSubjectSignup, Integer> {
+public class UserAuthDao extends AbstractDaoSupport<UserAuth, Integer> {
 
     @Autowired
     @Qualifier("OASqlSession")

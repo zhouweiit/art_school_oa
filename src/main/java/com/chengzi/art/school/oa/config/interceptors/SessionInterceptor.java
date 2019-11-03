@@ -1,13 +1,29 @@
 package com.chengzi.art.school.oa.config.interceptors;
 
+import com.chengzi.art.school.framework.util.SafeConverterUtil;
+import com.chengzi.art.school.oa.config.AppConfig;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import java.util.Objects;
 
+/**
+    注意要理解一个东西：
+    1. http session提供的过期时间，清除session并不会去清除客户端的cookie，只会清除内存中的session信息
+    2. session的cookie过期时间默认是浏览器的关闭时间
+*/
 public class SessionInterceptor extends AbstractInterceptor {
 
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+        HttpSession session = request.getSession(true);
+        session.setMaxInactiveInterval(AppConfig.Login.sessionTimeout);
+        Boolean isLogin = SafeConverterUtil.toBoolean(session.getAttribute(AppConfig.Login.isLoginSessionKey), false);
+        if (!isLogin) {
+            response.sendRedirect("/admin/login/view");
+            return false;
+        }
         return true;
     }
 

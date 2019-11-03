@@ -23,16 +23,16 @@ import javax.sql.DataSource;
 @Configuration
 public class MysqlOADataSourceConfig {
 
-    @Value("${spring.datasource.oa.driver-class-name}")
+    @Value("${spring.datasource.artoa.driver-class-name}")
     private String driverClassName;
 
-    @Value("${spring.datasource.oa.url}")
+    @Value("${spring.datasource.artoa.url}")
     private String url;
 
-    @Value("${spring.datasource.oa.username}")
+    @Value("${spring.datasource.artoa.username}")
     private String username;
 
-    @Value("${spring.datasource.oa.password}")
+    @Value("${spring.datasource.artoa.password}")
     private String password;
 
     @Bean(name = "OADataSource")
@@ -65,15 +65,17 @@ public class MysqlOADataSourceConfig {
                 new ClassPathResource("/com/chengzi/art/school/oa/persistence/mysql/artoa/model/Clazz.xml"),
                 new ClassPathResource("/com/chengzi/art/school/oa/persistence/mysql/artoa/model/ClazzSchedule.xml"),
                 new ClassPathResource("/com/chengzi/art/school/oa/persistence/mysql/artoa/model/ClazzStudentRef.xml"),
-                new ClassPathResource("/com/chengzi/art/school/oa/persistence/mysql/artoa/model/ClazzTeacherRef.xml"),
                 new ClassPathResource("/com/chengzi/art/school/oa/persistence/mysql/artoa/model/SchoolRoom.xml"),
                 new ClassPathResource("/com/chengzi/art/school/oa/persistence/mysql/artoa/model/School.xml"),
                 new ClassPathResource("/com/chengzi/art/school/oa/persistence/mysql/artoa/model/SchoolGroup.xml"),
-                new ClassPathResource("/com/chengzi/art/school/oa/persistence/mysql/artoa/model/StudentSubjectInfo.xml"),
-                new ClassPathResource("/com/chengzi/art/school/oa/persistence/mysql/artoa/model/StudentSubjectSignup.xml"),
-                new ClassPathResource("/com/chengzi/art/school/oa/persistence/mysql/artoa/model/User.xml"),
+                new ClassPathResource("/com/chengzi/art/school/oa/persistence/mysql/artoa/model/SchoolConfig.xml"),
+                new ClassPathResource("/com/chengzi/art/school/oa/persistence/mysql/artoa/model/StudentSubjectHour.xml"),
                 new ClassPathResource("/com/chengzi/art/school/oa/persistence/mysql/artoa/model/PermissionResource.xml"),
-                new ClassPathResource("/com/chengzi/art/school/oa/persistence/mysql/artoa/model/PermissionResourceRole.xml")
+                new ClassPathResource("/com/chengzi/art/school/oa/persistence/mysql/artoa/model/PermissionResourceRole.xml"),
+                new ClassPathResource("/com/chengzi/art/school/oa/persistence/mysql/artoa/model/UserBase.xml"),
+                new ClassPathResource("/com/chengzi/art/school/oa/persistence/mysql/artoa/model/UserAuth.xml"),
+                new ClassPathResource("/com/chengzi/art/school/oa/persistence/mysql/artoa/model/UserStudentExt.xml"),
+                new ClassPathResource("/com/chengzi/art/school/oa/persistence/mysql/artoa/model/UserTeacherExt.xml")
         );
 
         org.apache.ibatis.session.Configuration configuration = new org.apache.ibatis.session.Configuration();
@@ -81,15 +83,17 @@ public class MysqlOADataSourceConfig {
         configuration.getTypeAliasRegistry().registerAlias("Clazz", ClazzSchedule.class);
         configuration.getTypeAliasRegistry().registerAlias("ClazzSchedule", Clazz.class);
         configuration.getTypeAliasRegistry().registerAlias("ClazzStudentRef", ClazzStudentRef.class);
-        configuration.getTypeAliasRegistry().registerAlias("ClazzTeacherRef", ClazzTeacherRef.class);
         configuration.getTypeAliasRegistry().registerAlias("SchoolRoom", SchoolRoom.class);
         configuration.getTypeAliasRegistry().registerAlias("School", School.class);
         configuration.getTypeAliasRegistry().registerAlias("SchoolGroup", SchoolGroup.class);
-        configuration.getTypeAliasRegistry().registerAlias("StudentSubjectInfo", StudentSubjectInfo.class);
-        configuration.getTypeAliasRegistry().registerAlias("StudentSubjectSignUp", StudentSubjectSignup.class);
-        configuration.getTypeAliasRegistry().registerAlias("User", User.class);
+        configuration.getTypeAliasRegistry().registerAlias("SchoolConfig", SchoolConfig.class);
+        configuration.getTypeAliasRegistry().registerAlias("StudentSubjectHour", StudentSubjectHour.class);
+        configuration.getTypeAliasRegistry().registerAlias("UserBase", UserBase.class);
         configuration.getTypeAliasRegistry().registerAlias("PermissionResource", PermissionResource.class);
         configuration.getTypeAliasRegistry().registerAlias("PermissionResourceRole", PermissionResourceRole.class);
+        configuration.getTypeAliasRegistry().registerAlias("UserAuth", UserAuth.class);
+        configuration.getTypeAliasRegistry().registerAlias("UserStudentExt", UserStudentExt.class);
+        configuration.getTypeAliasRegistry().registerAlias("UserTeacherExt", UserTeacherExt.class);
         sqlSessionFactoryBean.setConfiguration(configuration);
         return sqlSessionFactoryBean.getObject();
     }

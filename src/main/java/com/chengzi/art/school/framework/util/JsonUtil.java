@@ -1,4 +1,4 @@
-package com.chengzi.art.school.framework.util.json;
+package com.chengzi.art.school.framework.util;
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.JavaType;

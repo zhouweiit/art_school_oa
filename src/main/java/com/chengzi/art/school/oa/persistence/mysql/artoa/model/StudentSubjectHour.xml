@@ -2,8 +2,8 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.chengzi.art.school.oa.persistence.mysql.artoa.model.StudentSubjectInfo">
-    <select id="selectByPrimaryKey" resultType="StudentSubjectInfo" parameterType="int">
+<mapper namespace="com.chengzi.art.school.oa.persistence.mysql.artoa.model.StudentSubjectHour">
+    <select id="selectByPrimaryKey" resultType="StudentSubjectHour" parameterType="int">
         select * from student_subject_info where id = #{id} and is_delete = 0
     </select>
 </mapper>

@@ -3,7 +3,9 @@ package com.chengzi.art.school.oa.constant;
 import lombok.Getter;
 
 @Getter
-public enum Sex {
+public enum Gender {
+
+    Unkonw(0, "未知"),
 
     Boy(1, "男"),
 
@@ -13,7 +15,7 @@ public enum Sex {
 
     private String name;
 
-    Sex(Integer id, String name) {
+    Gender(Integer id, String name) {
         this.id = id;
         this.name = name;
     }
