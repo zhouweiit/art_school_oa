@@ -5,7 +5,7 @@ package com.chengzi.art.school.framework.dao;
  *
  * @author zhouwei
  */
-public class DaoException extends Exception{
+public class DaoException extends RuntimeException {
 
 	private static final long serialVersionUID = -5459563333058712266L;
 
