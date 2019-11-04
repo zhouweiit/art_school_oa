@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.ClassPathResource;
+import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 
 import javax.sql.DataSource;
 
@@ -102,6 +103,11 @@ public class MysqlOADataSourceConfig {
     @Bean(name = "OASqlSession")
     public SqlSessionTemplate getOASqlSession(@Autowired @Qualifier("OASqlSessionFactoryBean") SqlSessionFactory sqlSessionFactory) throws Exception {
         return new SqlSessionTemplate(sqlSessionFactory);
+    }
+
+    @Bean(name = "OADataSourceTransactionManager")
+    public DataSourceTransactionManager getDataSourceTransactionManager(@Autowired @Qualifier("OADataSource") DataSource dataSource){
+        return new DataSourceTransactionManager(dataSource);
     }
 
 }
