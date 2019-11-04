@@ -6,6 +6,7 @@ import com.chengzi.art.school.oa.persistence.mysql.artoa.dao.ClazzDao;
 import com.chengzi.art.school.framework.util.JsonUtil;
 import com.chengzi.art.school.oa.persistence.mysql.artoa.dao.ClazzScheduleDao;
 import com.chengzi.art.school.oa.persistence.mysql.artoa.model.ClazzSchedule;
+import com.chengzi.art.school.oa.service.ClazzService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -31,7 +32,7 @@ public class DemoController extends AdminAbstractController {
     private ClazzScheduleDao clazzScheduleDao;
 
     @Autowired
-    private ClazzDao clazzDao;
+    private ClazzService clazzService;
 
     @RequestMapping(value = "/table", method = {RequestMethod.GET})
     public ModelAndView login() {
@@ -96,5 +97,12 @@ public class DemoController extends AdminAbstractController {
         ModelAndView mav = new ModelAndView();
         mav.setViewName("/view/admin/demo/gride");
         return mav;
+    }
+
+    @RequestMapping(value = "/test", method = {RequestMethod.GET})
+    @ResponseBody
+    public String test() {
+        clazzService.test();
+        return "test";
     }
 }

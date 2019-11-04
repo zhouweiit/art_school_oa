@@ -192,7 +192,7 @@
                     </a>
                     <ul class="treeview-menu">
                         <#list item.menuTreeDtos as childItem>
-                            <li <#if childItem.url == _servlet_path_>class="active"</#if>><a href="${childItem.url}"><i class="fa fa-circle-o"></i>${childItem.name}</a></li>
+                            <li <#if childItem.url == _servlet_path_>class="active"</#if>><a href="${childItem.url}"><i class="fa fa-circle-o text-aqua"></i>${childItem.name}</a></li>
                         </#list>
                     </ul>
                 </li>

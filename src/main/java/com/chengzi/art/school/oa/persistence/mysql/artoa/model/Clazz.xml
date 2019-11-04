@@ -6,4 +6,9 @@
     <select id="selectByPrimaryKey" resultType="Clazz" parameterType="int">
         select * from clazz where #{id} and is_delete = 0
     </select>
+
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id" parameterType="Clazz">
+        insert into clazz (id, school_id, name, subject, teacher_id, clazz_hour, min_student_num, max_student_num, school_group_id, is_delete, create_datetime, update_datetime)
+        VALUE (#{id}, #{schoolId}, #{name}, #{subject}, #{teacherId}, #{clazzHour}, #{minStudentNum}, #{maxStudentNum}, #{schoolGroupId}, 0, now(), now())
+    </insert>
 </mapper>
