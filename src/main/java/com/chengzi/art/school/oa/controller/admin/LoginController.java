@@ -1,8 +1,13 @@
 package com.chengzi.art.school.oa.controller.admin;
 
+import com.chengzi.art.school.framework.api.ApiResultDto;
 import com.chengzi.art.school.framework.util.CaptchaUtil;
+import com.chengzi.art.school.framework.util.SafeConverterUtil;
 import com.chengzi.art.school.oa.config.AppConfig;
+import com.chengzi.art.school.oa.persistence.mysql.artoa.model.UserAuth;
+import com.chengzi.art.school.oa.service.LoginService;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -16,32 +21,45 @@ import javax.servlet.http.HttpSession;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.util.Objects;
 
 @Controller
 @RequestMapping("/admin/login")
 @Slf4j
 public class LoginController {
 
+    @Autowired
+    private LoginService loginService;
+
     @RequestMapping(value = "/view", method = {RequestMethod.GET})
-    @ResponseBody
-    public String view() {
-        return "请登录";
-    }
-
-    @RequestMapping(value = "/login", method = {RequestMethod.GET})
-    @ResponseBody
-    public String login() {
-        return "login";
-    }
-
-    @RequestMapping(value = "/logout", method = {RequestMethod.GET})
-    @ResponseBody
-    public String logout(HttpServletRequest request, HttpServletResponse response) {
-        HttpSession session = request.getSession(false);
-        if (null != session) {
-            session.invalidate();
+    public ModelAndView view(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        HttpSession session = request.getSession();
+        Boolean isLogin = SafeConverterUtil.toBoolean(session.getAttribute(AppConfig.Login.isLoginSessionKey));
+        if (isLogin) {
+            response.sendRedirect("/admin/index/view");
         }
-        return "logout";
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("/view/admin/login/view");
+        return mav;
+    }
+
+    @RequestMapping(value = "/login", method = {RequestMethod.POST})
+    @ResponseBody
+    public ApiResultDto login(String username, String password, String captcha, HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        session.setMaxInactiveInterval(AppConfig.Login.sessionTimeout);
+        String captchaSession = SafeConverterUtil.toString(session.getAttribute(AppConfig.Login.captchaSessionKey));
+        session.setAttribute(AppConfig.Login.captchaSessionKey, "");
+        if (!Objects.equals(captcha, captchaSession)) {
+            return ApiResultDto.getInstanceError400("验证码错误，请重新输入");
+        }
+        UserAuth userAuth = loginService.checkUserPassword(username, password);
+        if (null == userAuth) {
+            return ApiResultDto.getInstanceError400("用户名或者密码错误，请重新输入");
+        }
+        session.setAttribute(AppConfig.Login.isLoginSessionKey, true);
+        session.setAttribute(AppConfig.Login.userIdSessionKey, userAuth.getUserBaseId());
+        return ApiResultDto.getInstance200();
     }
 
     @RequestMapping(value = "/captcha", method = {RequestMethod.GET})
@@ -58,16 +76,6 @@ public class LoginController {
         ImageIO.write(verifyImg,"png", os);
         os.flush();
         os.close();
-    }
-
-    @RequestMapping(value = "/mock", method = {RequestMethod.GET})
-    @ResponseBody
-    public String mock(HttpServletRequest request, HttpServletResponse response) {
-        HttpSession session = request.getSession(true);
-        session.setMaxInactiveInterval(AppConfig.Login.sessionTimeout);
-        session.setAttribute(AppConfig.Login.isLoginSessionKey, true);
-        session.setAttribute(AppConfig.Login.userIdSessionKey, 1);
-        return "您已经登录";
     }
 
 }

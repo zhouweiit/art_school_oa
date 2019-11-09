@@ -11,7 +11,7 @@
     不支持缩放
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     -->
-    <title>博美教育管理系统</title>
+    <title>博美助教</title>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <link rel="stylesheet" href="/static/widget/admin/bower_components/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="/static/widget/admin/bower_components/font-awesome/css/font-awesome.min.css">
@@ -46,7 +46,7 @@
     <header class="main-header">
         <a href="/static/widget/admin/index2.html" class="logo">
             <span class="logo-mini"><b>博美</b></span>
-            <span class="logo-lg"><b>博美助教系统</b></span>
+            <span class="logo-lg"><b>博美助教</b></span>
         </a>
         <nav class="navbar navbar-static-top">
             <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
@@ -142,31 +142,15 @@
                                 <img src="/static/widget/admin/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
                                 <p>Alexander Pierce - Web Developer<small>Member since Nov. 2012</small></p>
                             </li>
-                            <li class="user-body">
-                                <div class="row">
-                                    <div class="col-xs-4 text-center">
-                                        <a href="#">Followers</a>
-                                    </div>
-                                    <div class="col-xs-4 text-center">
-                                        <a href="#">Sales</a>
-                                    </div>
-                                    <div class="col-xs-4 text-center">
-                                        <a href="#">Friends</a>
-                                    </div>
-                                </div>
-                            </li>
                             <li class="user-footer">
                                 <div class="pull-left">
-                                    <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                    <span class="btn btn-default btn-flat" id="password_modify">密码修改</span>
                                 </div>
                                 <div class="pull-right">
-                                    <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                                    <span id="logout_submit" class="btn btn-default btn-flat">登出</span>
                                 </div>
                             </li>
                         </ul>
-                    </li>
-                    <li>
-                        <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
                     </li>
                 </ul>
             </div>
@@ -203,24 +187,7 @@
 
     <#--内容主体信息-->
     <div class="content-wrapper">
-        <#--内容的头信息-->
-        <section class="content-header">
-            <section class="content-header">
-                <h1>
-                    学校管理
-                    <small><小标题></小标题></small>
-                </h1>
-                <ol class="breadcrumb">
-                    <li><a href="#"><i class="fa fa-dashboard"></i> 首页</a></li>
-                    <li><a href="#">学校管理</a></li>
-                    <li class="active">新增学校</li>
-                </ol>
-            </section>
-        </section>
-        <#--内容的主题信息-->
-        <section class="content">
         <@layout_content/>
-        </section>
     </div>
 
     <#--底部信息-->
@@ -240,6 +207,30 @@
 <script src="/static/widget/admin/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
 <script src="/static/widget/admin/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
 <script src="/static/widget/treeview/js/bootstrap-treeview.js"></script>
+<script>
+    <#-- 登出js -->
+    $(function () {
+        $("#logout_submit").click(function () {
+            $.ajax({
+                type: "POST",
+                url: "/admin/user/logout",
+                dataType: "json",
+                success: function (msg) {
+                    if (msg.resultCode == 200) {
+                        window.location.href = '/admin/login/view';
+                    } else {
+                        alert(msg.resultMessage);
+                    }
+                },
+                error: function (msg) {
+                }
+            });
+        });
+    });
+
+</script>
 <@layout_footerjs/>
 </body>
 </html>
+<#--通用-->
+<#include "common.ftl"/>

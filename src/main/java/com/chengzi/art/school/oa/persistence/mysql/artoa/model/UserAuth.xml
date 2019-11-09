@@ -6,4 +6,12 @@
     <select id="selectByPrimaryKey" resultType="UserAuth" parameterType="int">
         select * from user_auth where user_base_id = #{id} and is_delete = 0
     </select>
+
+    <select id="selectByLoginName" resultType="UserAuth" parameterType="string">
+        select * from user_auth where login_name = #{loginName} and is_delete = 0
+    </select>
+
+    <update id="updateUserPassword" parameterType="map">
+        update user_auth set login_password = #{loginPassword}, update_datetime = now() where user_base_id = #{userBaseId}
+    </update>
 </mapper>

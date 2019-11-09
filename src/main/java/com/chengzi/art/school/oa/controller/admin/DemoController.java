@@ -99,10 +99,4 @@ public class DemoController extends AdminAbstractController {
         return mav;
     }
 
-    @RequestMapping(value = "/test", method = {RequestMethod.GET})
-    @ResponseBody
-    public String test() {
-        clazzService.test();
-        return "test";
-    }
 }

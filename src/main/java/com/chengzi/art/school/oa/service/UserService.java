@@ -37,4 +37,9 @@ public class UserService {
         return permissionService.loadPermissionResource(roleIds, resourceIds);
     }
 
+    public void updateUserPassword(Integer userBaseId, String salt, String password) {
+        String newPassword = UserAuth.createPassword(salt, password);
+        userAuthDao.updateUserPassword(userBaseId, newPassword);
+    }
+
 }

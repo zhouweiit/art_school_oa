@@ -8,7 +8,7 @@ public class AppConfig {
         public static final String userIdSessionKey = "_user_base_id_";
         public static final String captchaSessionKey = "_captcha_";
         public static final int captchaWidth = 110;
-        public static final int captchaHeight = 35;
+        public static final int captchaHeight = 26;
     }
 
 }

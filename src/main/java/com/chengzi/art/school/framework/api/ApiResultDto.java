@@ -26,7 +26,7 @@ public class ApiResultDto<T>{
 	@JsonInclude(Include.NON_NULL) 
 	private T result;
 	
-	public static <E> ApiResultDto<E> instance200(){
+	public static <E> ApiResultDto<E> getInstance200(){
 		ApiResultDto<E> dto = new ApiResultDto<>();
 		dto.setResultCode(200);
 		dto.setResultMessage("请求成功");

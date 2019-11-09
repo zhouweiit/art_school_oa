@@ -7,11 +7,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@RequestMapping("/admin/index")
+@RequestMapping("/admin")
 @Slf4j
 public class IndexController {
 
-    @RequestMapping(value = "/view", method = {RequestMethod.GET})
+    @RequestMapping("")
+    public String index() {
+        return "/admin/index/view";
+    }
+
+    @RequestMapping(value = "/index/view", method = {RequestMethod.GET})
     public ModelAndView view() {
         ModelAndView mav = new ModelAndView();
         mav.setViewName("/view/admin/index/view");

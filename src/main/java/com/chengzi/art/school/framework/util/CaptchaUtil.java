@@ -26,7 +26,7 @@ public class CaptchaUtil {
             sBuffer.append(ch);
             //正向旋转
             graphics.rotate(degree * Math.PI / 180, x, 45);
-            graphics.drawString(ch, x, 30);
+            graphics.drawString(ch, x, 23);
             //反向旋转
             graphics.rotate(-degree * Math.PI / 180, x, 45);
             x += 23;

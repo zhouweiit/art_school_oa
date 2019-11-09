@@ -14,21 +14,8 @@ public class IndexFrontController extends FrontAbstractController {
     @RequestMapping(value = "/", method = {RequestMethod.GET})
     public ModelAndView index() {
         ModelAndView mav = new ModelAndView();
-        mav.setViewName("/view/front/index");
+        mav.setViewName("/view/front/index/index");
         return mav;
-    }
-
-    @RequestMapping(value = "/admin", method = {RequestMethod.GET})
-    public ModelAndView adminIndex() {
-        ModelAndView mav = new ModelAndView();
-        mav.setViewName("/view/admin/index");
-        return mav;
-    }
-
-    @RequestMapping(value = "/test", method = {RequestMethod.GET})
-    @ResponseBody
-    public String test() throws Exception {
-        throw new Exception("/test exception");
     }
 
     @RequestMapping(value = "/500", method = {RequestMethod.GET})

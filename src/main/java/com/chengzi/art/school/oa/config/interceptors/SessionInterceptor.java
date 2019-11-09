@@ -21,6 +21,9 @@ public class SessionInterceptor implements HandlerInterceptor {
 
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         try {
+
+            //todo 判断是否是ajax，如果是的话，需要返回ApiResultDto，以及固定的code
+
             HttpSession session = request.getSession(true);
             session.setMaxInactiveInterval(AppConfig.Login.sessionTimeout);
             Boolean isLogin = SafeConverterUtil.toBoolean(session.getAttribute(AppConfig.Login.isLoginSessionKey), false);
