@@ -208,18 +208,36 @@
 <script src="/static/widget/admin/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
 <script src="/static/widget/treeview/js/bootstrap-treeview.js"></script>
 <script>
+    $.ajaxSetup({
+        complete: function (XMLHttpRequest, textStatus) {
+            var res = XMLHttpRequest.responseText;
+            try {
+                var jsonData = JSON.parse(res);
+                <#-- 用户未登录或者登录超时-->
+                if (jsonData.resultCode == 88) {
+                    window.location.href = "/admin/login/view";
+                }
+            } catch(e) {
+            }
+        }
+    });
+
     <#-- 登出js -->
     $(function () {
+
         $("#logout_submit").click(function () {
             $.ajax({
                 type: "POST",
                 url: "/admin/user/logout",
                 dataType: "json",
                 success: function (msg) {
-                    if (msg.resultCode == 200) {
-                        window.location.href = '/admin/login/view';
-                    } else {
-                        alert(msg.resultMessage);
+                    if (msg.resultCode >= 200) {
+                        if (msg.resultCode == 200) {
+                            alert("您还未登录，或者登录已经超时，请重新登录");
+                            window.location.href = '/admin/login/view';
+                        } else {
+                            alert(msg.resultMessage);
+                        }
                     }
                 },
                 error: function (msg) {

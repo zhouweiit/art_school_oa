@@ -1,7 +1,11 @@
 package com.chengzi.art.school.oa.config.interceptors;
 
+import com.chengzi.art.school.framework.api.ApiResultDto;
+import com.chengzi.art.school.framework.util.JsonUtil;
 import com.chengzi.art.school.framework.util.SafeConverterUtil;
+import com.chengzi.art.school.framework.util.StringUtil;
 import com.chengzi.art.school.oa.config.AppConfig;
+import com.chengzi.art.school.oa.constant.ApiResultCode;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
@@ -21,14 +25,24 @@ public class SessionInterceptor implements HandlerInterceptor {
 
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         try {
-
-            //todo 判断是否是ajax，如果是的话，需要返回ApiResultDto，以及固定的code
-
+            boolean isAjaxRequest = false;
+            if(!StringUtil.isBlank(request.getHeader("x-requested-with")) && request.getHeader("x-requested-with").equals("XMLHttpRequest")){
+                isAjaxRequest = true;
+            }
             HttpSession session = request.getSession(true);
             session.setMaxInactiveInterval(AppConfig.Login.sessionTimeout);
             Boolean isLogin = SafeConverterUtil.toBoolean(session.getAttribute(AppConfig.Login.isLoginSessionKey), false);
             if (!isLogin) {
-                response.sendRedirect("/admin/login/view");
+                if (isAjaxRequest) {
+                    ApiResultDto dto = new ApiResultDto();
+                    dto.setResultCode(ApiResultCode.NOT_LOGIN.getCode());
+                    dto.setResultMessage(ApiResultCode.NOT_LOGIN.getMessage());
+                    response.setContentType("application/json");
+                    response.getWriter().print(JsonUtil.object2json(dto));
+                    response.getWriter().flush();
+                } else {
+                    response.sendRedirect("/admin/login/view");
+                }
                 return false;
             }
             return true;

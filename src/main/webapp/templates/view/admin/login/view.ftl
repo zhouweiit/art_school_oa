@@ -72,10 +72,12 @@
                 data: data,
                 dataType: "json",
                 success: function (msg) {
-                    if (msg.resultCode == 200) {
-                        window.location.href = '/admin/index/view';
-                    } else {
-                        alert(msg.resultMessage);
+                    if (msg.resultCode >= 200) {
+                        if (msg.resultCode == 200) {
+                            window.location.href = '/admin/index/view';
+                        } else {
+                            alert(msg.resultMessage);
+                        }
                     }
                     $("#captcha_img").click();
                 },

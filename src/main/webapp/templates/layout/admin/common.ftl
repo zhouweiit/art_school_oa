@@ -57,14 +57,16 @@
                 data: data,
                 dataType: "json",
                 success: function (msg) {
-                    if (msg.resultCode == 200) {
-                        alert("密码修改成功");
-                        $('#password_modify_modal').modal('hide');
-                        $("#old_password").val("");
-                        $("#first_password").val("");
-                        $("#second_password").val("");
-                    } else {
-                        alert(msg.resultMessage);
+                    if (msg.resultCode >= 200) {
+                        if (msg.resultCode == 200) {
+                            alert("密码修改成功");
+                            $('#password_modify_modal').modal('hide');
+                            $("#old_password").val("");
+                            $("#first_password").val("");
+                            $("#second_password").val("");
+                        } else {
+                            alert(msg.resultMessage);
+                        }
                     }
                 },
                 error: function (msg) {
