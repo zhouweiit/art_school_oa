@@ -71,6 +71,13 @@ public class DemoController extends AdminAbstractController {
         return mav;
     }
 
+    @RequestMapping(value = "/validate", method = {RequestMethod.GET})
+    public ModelAndView validate() {
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("/view/admin/demo/validate");
+        return mav;
+    }
+
     @RequestMapping(value = "/insert", method = {RequestMethod.GET})
     public ModelAndView insert() {
         ModelAndView mav = new ModelAndView();

@@ -13,6 +13,7 @@
     -->
     <title>博美助教</title>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <script src="/static/widget/admin/bower_components/jquery/dist/jquery.min.js"></script>
     <link rel="stylesheet" href="/static/widget/admin/bower_components/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="/static/widget/admin/bower_components/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="/static/widget/admin/bower_components/Ionicons/css/ionicons.min.css">
@@ -199,7 +200,7 @@
     </footer>
 
 </div>
-<script src="/static/widget/admin/bower_components/jquery/dist/jquery.min.js"></script>
+<script src="/static/widget/validate/dist/jquery.validate.js"></script>
 <script src="/static/widget/admin/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="/static/widget/admin/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
 <script src="/static/widget/admin/dist/js/adminlte.min.js"></script>
