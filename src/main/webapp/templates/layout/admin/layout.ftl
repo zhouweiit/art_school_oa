@@ -252,4 +252,5 @@
 </body>
 </html>
 <#--通用-->
-<#include "common.ftl"/>
+<#include "password_modify.ftl"/>
+<#include "validate_config.ftl.ftl"/>
