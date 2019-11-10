@@ -7,5 +7,10 @@ $.validator.setDefaults({
         error.appendTo($("#" + message_id));
         $("#" + form_group_id).addClass("has-error");
     },
+    success: function(label) {
+        id = label.attr("for"); <#-- 根据规律发现它的label有一个这个属性，所以拿来当ID用了 -->
+        form_group_id = id + "_form_group";
+        $("#" + form_group_id).removeClass("has-error");
+    },
 });
 </script>
