@@ -11,6 +11,7 @@ $.validator.setDefaults({
         id = label.attr("for"); <#-- 根据规律发现它的label有一个这个属性，所以拿来当ID用了 -->
         form_group_id = id + "_form_group";
         $("#" + form_group_id).removeClass("has-error");
-    },
+        label.remove(); <#-- 成功后，删除label，恢复样式 -->
+    }
 });
 </script>

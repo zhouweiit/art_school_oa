@@ -4,8 +4,12 @@ import com.chengzi.art.school.framework.api.ApiResultDto;
 import com.chengzi.art.school.framework.util.CaptchaUtil;
 import com.chengzi.art.school.framework.util.SafeConverterUtil;
 import com.chengzi.art.school.oa.config.AppConfig;
+import com.chengzi.art.school.oa.persistence.mysql.artoa.model.SchoolGroup;
 import com.chengzi.art.school.oa.persistence.mysql.artoa.model.UserAuth;
+import com.chengzi.art.school.oa.persistence.mysql.artoa.model.UserBase;
 import com.chengzi.art.school.oa.service.LoginService;
+import com.chengzi.art.school.oa.service.SchoolGroupService;
+import com.chengzi.art.school.oa.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -30,6 +34,12 @@ public class LoginController {
 
     @Autowired
     private LoginService loginService;
+
+    @Autowired
+    private UserService userService;
+    
+    @Autowired
+    private SchoolGroupService schoolGroupService;
 
     @RequestMapping(value = "/view", method = {RequestMethod.GET})
     public ModelAndView view(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -57,8 +67,12 @@ public class LoginController {
         if (null == userAuth) {
             return ApiResultDto.getInstanceError400("用户名或者密码错误，请重新输入");
         }
+        UserBase userBase = userService.loadUserBaes(userAuth.getUserBaseId());
+        SchoolGroup schoolGroup = schoolGroupService.loadSchoolGroupById(userBase.getSchoolGroupId());
         session.setAttribute(AppConfig.Login.isLoginSessionKey, true);
         session.setAttribute(AppConfig.Login.userIdSessionKey, userAuth.getUserBaseId());
+        session.setAttribute(AppConfig.Login.userNameSessionKey, userBase.getName());
+        session.setAttribute(AppConfig.Login.userSchoolGroupNameSessionKey, schoolGroup.getName());
         return ApiResultDto.getInstance200();
     }
 

@@ -54,6 +54,11 @@ public class SessionInterceptor implements HandlerInterceptor {
     }
 
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
+        if (null != modelAndView) {
+            HttpSession session = request.getSession(true);
+            modelAndView.addObject("_user_name_", session.getAttribute(AppConfig.Login.userNameSessionKey));
+            modelAndView.addObject("_user_school_group_name_", session.getAttribute(AppConfig.Login.userSchoolGroupNameSessionKey));
+        }
     }
 
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {

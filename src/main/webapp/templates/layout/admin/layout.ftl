@@ -136,12 +136,12 @@
                     <li class="dropdown user user-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <img src="/static/widget/admin/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-                            <span class="hidden-xs">Alexander Pierce</span>
+                            <span class="hidden-xs">${_user_name_}</span>
                         </a>
                         <ul class="dropdown-menu">
                             <li class="user-header">
                                 <img src="/static/widget/admin/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
-                                <p>Alexander Pierce - Web Developer<small>Member since Nov. 2012</small></p>
+                                <p>${_user_school_group_name_}<small></small></p>
                             </li>
                             <li class="user-footer">
                                 <div class="pull-left">
