@@ -23,6 +23,6 @@ public class MenuTreeDto implements Comparable<MenuTreeDto> {
 
     @Override
     public int compareTo(@NotNull MenuTreeDto o) {
-        return Integer.compare(id, o.getId());
+        return Integer.compare(order, o.getOrder());
     }
 }

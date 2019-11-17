@@ -92,4 +92,14 @@ public class LoginController {
         os.close();
     }
 
+    @RequestMapping(value = "/logout", method = {RequestMethod.POST})
+    @ResponseBody
+    public ApiResultDto logout(HttpServletRequest request) {
+        HttpSession session = request.getSession(false);
+        if (null != session) {
+            session.invalidate();
+        }
+        return ApiResultDto.getInstance200();
+    }
+
 }

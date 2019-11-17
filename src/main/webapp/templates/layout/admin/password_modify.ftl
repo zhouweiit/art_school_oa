@@ -95,7 +95,7 @@
                 };
                 $.ajax({
                     type: "POST",
-                    url: "/admin/user/modify_password",
+                    url: "/admin/org/user/modify_password",
                     data: data,
                     dataType: "json",
                     success: function (msg) {

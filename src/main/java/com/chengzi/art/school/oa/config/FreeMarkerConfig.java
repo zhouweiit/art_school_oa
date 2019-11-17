@@ -32,7 +32,7 @@ public class FreeMarkerConfig{
 
         //配置一些templates的全局变量，可以在freemarker中直接使用
         Map<String, Object> globalVar = new HashMap<>();
-        globalVar.put("layout_admin_path", "../../../layout/admin");
+        globalVar.put("layout_admin_path", "/layout/admin");
         freeMarkerConfigurer.setFreemarkerVariables(globalVar);
         return freeMarkerConfigurer;
     }

@@ -18,6 +18,8 @@
     <link rel="stylesheet" href="/static/widget/admin/bower_components/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="/static/widget/admin/bower_components/Ionicons/css/ionicons.min.css">
     <link rel="stylesheet" href="/static/widget/admin/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
+    <link rel="stylesheet" href="/static/widget/admin/bower_components/select2/dist/css/select2.min.css">
+    <link rel="stylesheet" href="/static/widget/admin/plugins/iCheck/all.css">
     <link rel="stylesheet" href="/static/widget/admin/dist/css/AdminLTE.min.css">
     <link rel="stylesheet" href="/static/widget/admin/dist/css/skins/_all-skins.min.css">
     <!--[if lt IE 9]>
@@ -177,7 +179,7 @@
                     </a>
                     <ul class="treeview-menu">
                         <#list item.menuTreeDtos as childItem>
-                            <li <#if childItem.url == _servlet_path_>class="active"</#if>><a href="${childItem.url}"><i class="fa fa-circle-o text-aqua"></i>${childItem.name}</a></li>
+                            <li <#if childItem.url == _servlet_path_>class="active"</#if>><a href="${childItem.url}">&nbsp;&nbsp;<i class="fa fa-circle-o text-aqua"></i>${childItem.name}</a></li>
                         </#list>
                     </ul>
                 </li>
@@ -216,6 +218,7 @@
                 var jsonData = JSON.parse(res);
                 <#-- 用户未登录或者登录超时-->
                 if (jsonData.resultCode == 88) {
+                    alert("您还未登录，或者登录已经超时，请重新登录");
                     window.location.href = "/admin/login/view";
                 }
             } catch(e) {
@@ -229,12 +232,11 @@
         $("#logout_submit").click(function () {
             $.ajax({
                 type: "POST",
-                url: "/admin/user/logout",
+                url: "/admin/login/logout",
                 dataType: "json",
                 success: function (msg) {
                     if (msg.resultCode >= 200) {
                         if (msg.resultCode == 200) {
-                            alert("您还未登录，或者登录已经超时，请重新登录");
                             window.location.href = '/admin/login/view';
                         } else {
                             alert(msg.resultMessage);

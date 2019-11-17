@@ -1,10 +1,9 @@
-package com.chengzi.art.school.oa.controller.admin;
+package com.chengzi.art.school.oa.controller.admin.org;
 
 import com.chengzi.art.school.framework.api.ApiResultDto;
 import com.chengzi.art.school.framework.util.SafeConverterUtil;
 import com.chengzi.art.school.oa.config.AppConfig;
 import com.chengzi.art.school.oa.persistence.mysql.artoa.model.UserAuth;
-import com.chengzi.art.school.oa.service.LoginService;
 import com.chengzi.art.school.oa.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,15 +17,12 @@ import javax.servlet.http.HttpSession;
 import java.util.Objects;
 
 @Controller
-@RequestMapping("/admin/user")
+@RequestMapping("/admin/org/user")
 @Slf4j
 public class UserController {
 
     @Autowired
     private UserService userService;
-
-    @Autowired
-    private LoginService loginService;
 
     @RequestMapping(value = "/modify_password", method = {RequestMethod.POST})
     @ResponseBody
@@ -42,16 +38,6 @@ public class UserController {
             return ApiResultDto.getInstanceError400("新密码两次输入的密码不一致，请重新输入");
         }
         userService.updateUserPassword(userAuth.getUserBaseId(), userAuth.getSalt(), firstPassword);
-        return ApiResultDto.getInstance200();
-    }
-
-    @RequestMapping(value = "/logout", method = {RequestMethod.POST})
-    @ResponseBody
-    public ApiResultDto logout(HttpServletRequest request) {
-        HttpSession session = request.getSession(false);
-        if (null != session) {
-            session.invalidate();
-        }
         return ApiResultDto.getInstance200();
     }
 
