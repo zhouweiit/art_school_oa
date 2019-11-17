@@ -2,13 +2,6 @@
 <#macro layout_content>
 <#--内容的头信息-->
 <section class="content-header">
-    <!--
-    <ol class="breadcrumb">
-        <li><span><i class="fa fa-dashboard"></i> 首页</span></li>
-        <li><span>学校管理</span></li>
-        <li class="active">新增学校</li>
-    </ol>
-    -->
     <h4>
         报名续费
         <small></small>
@@ -27,6 +20,9 @@
                     <div class="col-md-1">
                         <input type="email" class="form-control" id="inputEmail3" placeholder="">
                     </div>
+                    <div class="col-md-3">
+                        <span class="help-block" id=""></span>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="col-md-1 control-label">联系人：</label>
@@ -41,13 +37,18 @@
                             <option value="5">外婆</option>
                             <option value="5">其他</option>
                         </select>
-                        <span class="help-block" id="select_message"></span>
+                    </div>
+                    <div class="col-md-3">
+                        <span class="help-block" id=""></span>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-md-1 control-label">手机号码：</label>
                     <div class="col-md-2">
                         <input type="email" class="form-control" id="inputEmail3" placeholder="">
+                    </div>
+                    <div class="col-md-3">
+                        <span class="help-block" id=""></span>
                     </div>
                 </div>
                 <div class="form-group">
@@ -63,11 +64,17 @@
                             </label>
                         </div>
                     </div>
+                    <div class="col-md-3">
+                        <span class="help-block" id=""></span>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="col-md-1 control-label">住址：</label>
                     <div class="col-md-3">
                         <input type="email" class="form-control" id="inputEmail3" placeholder="">
+                    </div>
+                    <div class="col-md-3">
+                        <span class="help-block" id=""></span>
                     </div>
                 </div>
             </div>
