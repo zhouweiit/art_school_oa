@@ -381,8 +381,8 @@ public class MSWordManager {
         }
     }
 
-    public static void main(String[] args) throws Exception {
-        String dir = "C:\\Users\\Administrator\\Desktop\\school";
+    public static void all() {
+        String dir = "C:\\Users\\Administrator\\Desktop\\zonghe";
         File file = new File(dir);
         File[] fileList = file.listFiles();
         for (int i = 0; i < fileList.length; i++) {
@@ -392,7 +392,7 @@ public class MSWordManager {
                 try {
                     MSWordManager t = new MSWordManager(true);
                     t.open(filePath);
-                    t.replaceAll(t.selection, "✖️", "*");
+//                    t.replaceAll(t.selection, "✖️", "*");
 //                    if (fileName.contains("RE_1000000001")) {
 //                        t.moveDown(21);//数学
 //                    } else if (fileName.contains("RE_1000000002")) {
@@ -400,27 +400,30 @@ public class MSWordManager {
 //                    } else {
 //                        t.moveDown(27);//英语
 //                    }
-//                    //t.moveDown(27);//英语
-//                    //t.moveDown(26);//语文
-//                    //t.moveDown(21);//数学
-//                    t.createCatalog();
-//                    t.createPageNo();
+                    t.moveDown(28);//综合
+                    //t.moveDown(27);//英语
+                    //t.moveDown(26);//语文
+                    //t.moveDown(21);//数学
+                    t.createCatalog();
+                    t.createPageNo();
                     t.close();
                 } catch (Throwable a) {
                     System.out.println(fileName);
                 }
             }
         }
+    }
 
-//        MSWordManager t = new MSWordManager(true);
-//        t.open("C:\\Users\\Administrator\\Desktop\\RE_1000000001school74789.docx");
-//        t.moveDown(27);//英语
-//        t.moveDown(26);//语文
-//        t.moveDown(21);//数学
-//        t.createCatalog();
-//        t.createPageNo();
-//        t.replaceAll(t.selection, "✖️", "*");
-        //t.close();
+    public static void single() {
+        MSWordManager t = new MSWordManager(true);
+        t.open("C:\\Users\\Administrator\\Desktop\\school75624.docx");
+        t.moveDown(28);
+        t.createCatalog();
+        t.createPageNo();
+    }
+
+    public static void main(String[] args) throws Exception {
+        single();
     }
 
 }
