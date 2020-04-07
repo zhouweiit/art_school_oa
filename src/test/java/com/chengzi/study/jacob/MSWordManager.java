@@ -423,7 +423,7 @@ public class MSWordManager {
     }
 
     public static void main(String[] args) throws Exception {
-        single();
+        all();
     }
 
 }
